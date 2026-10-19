@@ -1,0 +1,1122 @@
+{
+  "graphs": [
+    {
+      "id": "http://purl.obolibrary.org/obo/cl/cl-basic.json",
+      "nodes": [
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000000",
+          "lbl": "cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A material entity of anatomical origin (part of or deriving from an organism) that has as its parts a maximally connected cell compartment surrounded by a plasma membrane.",
+              "xrefs": [
+                "CARO:mah"
+              ]
+            },
+            "comments": [
+              "The definition of cell is intended to represent all cells, and thus a cell is defined as a material entity and not an anatomical structure, which implies that it is part of an organism (or the entirety of one)."
+            ],
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/ubprop#_upper_level"
+            ],
+            "xrefs": [
+              {
+                "val": "CALOHA:TS-2035"
+              },
+              {
+                "val": "FBbt:00007002",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/ManualMappingCuration"
+                    }
+                  ]
+                }
+              },
+              {
+                "val": "FMA:68646"
+              },
+              {
+                "val": "GO:0005623"
+              },
+              {
+                "val": "KUPO:0000002"
+              },
+              {
+                "val": "MESH:D002477"
+              },
+              {
+                "val": "VHOG:0001533"
+              },
+              {
+                "val": "WBbt:0004017"
+              },
+              {
+                "val": "XAO:0003012"
+              },
+              {
+                "val": "ZFA:0009000",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000084",
+          "lbl": "T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A type of lymphocyte whose defining characteristic is the expression of a T cell receptor complex.",
+              "xrefs": [
+                "GOC:add",
+                "GOC:tfm",
+                "ISBN:0781735149"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "T lymphocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "T-cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "T-lymphocyte"
+              },
+              {
+                "pred": "hasRelatedSynonym",
+                "val": "immature T cell"
+              },
+              {
+                "pred": "hasRelatedSynonym",
+                "val": "mature T cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0000782"
+              },
+              {
+                "val": "CALOHA:TS-1001"
+              },
+              {
+                "val": "FMA:62870"
+              },
+              {
+                "val": "MESH:D013601"
+              },
+              {
+                "val": "VHOG:0001479"
+              },
+              {
+                "val": "ZFA:0009046",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000219",
+          "lbl": "motile cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A cell that moves by its own activities.",
+              "xrefs": [
+                "FB:ma"
+              ]
+            },
+            "xrefs": [
+              {
+                "val": "ZFA:0009136",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "motile cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000226",
+          "lbl": "single nucleate cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A cell with a single nucleus.",
+              "xrefs": [
+                "FB:ma",
+                "GOC:tfm"
+              ]
+            }
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000255",
+          "lbl": "eukaryotic cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "Any cell that in taxon some Eukaryota.",
+              "xrefs": [
+                "FBC:Autogenerated"
+              ]
+            },
+            "xrefs": [
+              {
+                "val": "MESH:D005057"
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "eukaryotic cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000542",
+          "lbl": "lymphocyte",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A lymphocyte is a leukocyte commonly found in the blood and lymph that has the characteristics of a large nucleus, a neutral staining cytoplasm, and prominent heterochromatin.",
+              "xrefs": [
+                "GOC:add",
+                "ISBN:0683073696",
+                "ISBN:0781735149"
+              ]
+            },
+            "comments": [
+              "Editors note: consider adding taxon constraint to vertebrata (PMID:18025161)"
+            ],
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0000775"
+              },
+              {
+                "val": "CALOHA:TS-0583"
+              },
+              {
+                "val": "FMA:62863"
+              },
+              {
+                "val": "MESH:D008214"
+              },
+              {
+                "val": "VHOG:0001535"
+              },
+              {
+                "val": "ZFA:0009250",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000624",
+          "lbl": "CD4-positive, alpha-beta T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A mature alpha-beta T cell that expresses an alpha-beta T cell receptor and the CD4 coreceptor.",
+              "xrefs": [
+                "GOC:add",
+                "ISBN:0781735149"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "CD4-positive, alpha-beta T lymphocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "CD4-positive, alpha-beta T-cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "CD4-positive, alpha-beta T-lymphocyte"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000738",
+          "lbl": "leukocyte",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "An achromatic cell of the myeloid or lymphoid lineages capable of ameboid movement, found in blood or other tissue.",
+              "xrefs": [
+                "GOC:add",
+                "GOC:tfm",
+                "ISBN:978-0-323-05290-0"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/uberon/core#human_reference_atlas"
+            ],
+            "synonyms": [
+              {
+                "synonymType": "http://purl.obolibrary.org/obo/OMO_0003000",
+                "pred": "hasExactSynonym",
+                "val": "WBC",
+                "xrefs": [
+                  "PMID:40794848"
+                ]
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "leucocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "white blood cell"
+              },
+              {
+                "pred": "hasRelatedSynonym",
+                "val": "immune cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0000751"
+              },
+              {
+                "val": "CALOHA:TS-0549"
+              },
+              {
+                "val": "FMA:62852"
+              },
+              {
+                "val": "MESH:D007962"
+              },
+              {
+                "val": "NCIT:C12529"
+              },
+              {
+                "val": "ZFA:0009309",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000789",
+          "lbl": "alpha-beta T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A T cell that expresses an alpha-beta T cell receptor complex.",
+              "xrefs": [
+                "GOC:add",
+                "GOC:tfm",
+                "ISBN:0781735149"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#blood_and_immune_upper_slim",
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "alpha-beta T lymphocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "alpha-beta T-cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "alpha-beta T-lymphocyte"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "ZFA:0009335",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000791",
+          "lbl": "mature alpha-beta T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A alpha-beta T cell that has a mature phenotype.",
+              "xrefs": [
+                "GOC:add",
+                "GOC:tfm",
+                "ISBN:0781735149"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "mature alpha-beta T lymphocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "mature alpha-beta T-cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "mature alpha-beta T-lymphocyte"
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/description",
+                "val": "Mature alpha-beta T cells, also known as \u03b1\u03b2 T cells, are critical components of the adaptive immune system, responsible for a mediated immune response to pathogens and infected body cells. They derive their name from the alpha and beta chains that make up their characteristic T-cell receptor (TCR), a protein complex that binds to antigens. These cells undergo a maturation process in the thymus, where they learn to recognize self-antigens, thus achieving self-tolerance.\nMaturation of alpha-beta T cells takes place in the thymus and is tightly controlled by various transcriptional and epigenetic regulators. They develop through several stages from progenitors to mature T cells, from CD4-CD8- double negative cells to CD4+CD8+ double positive cells, until they eventually become CD4+ or CD8+ single positive cells.\nOnce matured, alpha-beta T cells primarily serve as regulators and effectors in an immune response. They are adept at recognizing fragments of antigens, often viruses or bacteria, presented on the surface of other cells via major histocompatibility complex (MHC) molecules. Once they encounter and recognize an antigen, they become activated, proliferate and differentiate into distinct subsets of effector T cells, such as cytotoxic T cells, helper T cells, and Natural Killer (NK) cells, each with a specific role in immune response.\nCytotoxic T cells, the effector cells for cell-mediated immunity, are adept at killing cells that have been infected, particularly with viruses. They do this by binding to infected cells and releasing cytotoxic substances which induce apoptosis, or cell death, thus eliminating the infected cells. The main function of NK cells is to kill virally infected cells, and to detect early signs of cancer. Helper T cells do not kill infected cells directly but play a key role in modulating or orchestrating the immune response by releasing cytokines that recruit and regulate other immunity cells such as B cells and macrophages. Therefore, the versatile roles of mature alpha-beta T cells are vital for maintaining the body's successful adaptive immune defenses.\n\n(This extended description was generated by ChatGPT and reviewed by the CellGuide team, who added references, and by the CL editors, who approved it for inclusion in CL. It may contain information that applies only to some subtypes and species, and so should not be considered definitional.)"
+              },
+              {
+                "pred": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+                "val": "https://cellxgene.cziscience.com/cellguide/CL_0000791",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "http://www.w3.org/2000/01/rdf-schema#label",
+                      "val": "mature alpha-beta T cell on CELLxGENE CellGuide"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000827",
+          "lbl": "pro-T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A lymphoid progenitor cell of the T cell lineage, with some lineage specific marker expression, but not yet fully committed to the T cell lineage.",
+              "xrefs": [
+                "GOC:add",
+                "ISBN:0781735149"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "pro-T lymphocyte"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "progenitor T cell"
+              },
+              {
+                "pred": "hasNarrowSynonym",
+                "val": "DN1 cell"
+              },
+              {
+                "pred": "hasNarrowSynonym",
+                "val": "DN1 thymocyte"
+              },
+              {
+                "pred": "hasNarrowSynonym",
+                "val": "TN1 cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "ZFA:0009350",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/description",
+                "val": "The pro-T cell is a T cell progenitor that will develop into cells of the T lymphocyte lineage. These cells derive from the bone marrow, originally differentiating from hematopoietic stem cells, and are found in the thymus, where T cell development takes place. Pro-T cells represent the stage in T cell development prior to T cell-specific gene rearrangement. Their primary function is to proliferate and differentiate into mature T cells, which play a critical role in adaptive immunity, helping the body respond efficiently to foreign pathogens.\nIn the bone marrow, hematopoietic stem cells can differentiate into common lymphoid progenitor cells. These cells are able to enter circulation and enter the thymus as thymus-seeding progenitor cells. These cells then differentiate into early thymic progenitors which proceed with T cell specification, developing from double negative (DN) to double positive (DP) to single positive (SP) T cells. Over the course of these developmental phases, the cells will commit to the T cell lineage and rearrange T cell receptor genes. In this pathway, pro-T cells can give rise to both alpha-beta and gamma-delta T cells and natural killer T (NKT) cells.\nPro-T cells are a key constituent of the immune system, presenting a critical stage in the T cell developmental process. T cells are important players in adaptive immunity and help to initiate and orchestrate the immune response and eliminate pathogens and tumor cells. Pro-T cells are also an area of interest in the context of regenerative medicine to reconstitute T cells and adoptive T cell therapies as a potential source of T cells.\n\n(This extended description was generated by ChatGPT and reviewed by the CellGuide team, who added references, and by the CL editors, who approved it for inclusion in CL. It may contain information that applies only to some subtypes and species, and so should not be considered definitional.)"
+              },
+              {
+                "pred": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+                "val": "https://cellxgene.cziscience.com/cellguide/CL_0000827",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "http://www.w3.org/2000/01/rdf-schema#label",
+                      "val": "pro-T cell on CELLxGENE CellGuide"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000838",
+          "lbl": "lymphoid lineage restricted progenitor cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A progenitor cell restricted to the lymphoid lineage.",
+              "xrefs": [
+                "GOC:add",
+                "GOC:tfm"
+              ]
+            },
+            "comments": [
+              "Note that this is a class of cell types, not an identified single cell type."
+            ],
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasBroadSynonym",
+                "val": "lymphoid progenitor cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0004731"
+              },
+              {
+                "val": "CALOHA:TS-2025"
+              },
+              {
+                "val": "FMA:70338"
+              },
+              {
+                "val": "ZFA:0009355",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000842",
+          "lbl": "mononuclear leukocyte",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A leukocyte with a single non-segmented nucleus in the mature form.",
+              "xrefs": [
+                "GOC:add"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#blood_and_immune_upper_slim",
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "mononuclear cell"
+              },
+              {
+                "pred": "hasNarrowSynonym",
+                "val": "peripheral blood mononuclear cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0000878"
+              },
+              {
+                "val": "CALOHA:TS-0768"
+              },
+              {
+                "val": "FMA:86713"
+              },
+              {
+                "val": "ZFA:0009357",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0000988",
+          "lbl": "hematopoietic cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A cell of a hematopoietic lineage.",
+              "xrefs": [
+                "GOC:add",
+                "GO_REF:0000031"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset",
+              "http://purl.obolibrary.org/obo/cl#general_cell_types_upper_slim"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "haematopoietic cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "haemopoietic cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "hemopoietic cell"
+              }
+            ],
+            "xrefs": [
+              {
+                "val": "BTO:0000574"
+              },
+              {
+                "val": "CALOHA:TS-2017"
+              },
+              {
+                "val": "FMA:70366"
+              },
+              {
+                "val": "FMA:83598"
+              },
+              {
+                "val": "ZFA:0005830",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "https://w3id.org/sssom/mapping_justification",
+                      "val": "https://w3id.org/semapv/vocab/UnspecifiedMatching"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "hematopoietic cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0002031",
+          "lbl": "hematopoietic lineage restricted progenitor cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A hematopoietic progenitor cell that is capable of developing into only one lineage of hematopoietic cells.",
+              "xrefs": [
+                "GOC:tfm",
+                "PMID:19022770"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#blood_and_immune_upper_slim"
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/contributor",
+                "val": "https://orcid.org/0000-0003-1980-3228"
+              },
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#creation_date",
+                "val": "2010-01-06T03:43:20Z"
+              },
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "hematopoietic lineage restricted progenitor cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0002242",
+          "lbl": "nucleate cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A cell containing at least one nucleus.",
+              "xrefs": [
+                "GOC:tfm"
+              ]
+            },
+            "xrefs": [
+              {
+                "val": "FMA:67513"
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/contributor",
+                "val": "https://orcid.org/0000-0003-1980-3228"
+              },
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#creation_date",
+                "val": "2010-09-07T03:32:33Z"
+              },
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "nucleate cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0002419",
+          "lbl": "mature T cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A T cell that expresses a T cell receptor complex and has completed T cell selection.",
+              "xrefs": [
+                "GOC:tfm"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "synonyms": [
+              {
+                "pred": "hasExactSynonym",
+                "val": "CD3e-positive T cell"
+              },
+              {
+                "pred": "hasExactSynonym",
+                "val": "mature T-cell"
+              },
+              {
+                "pred": "hasRelatedSynonym",
+                "val": "CD3epsilon T cell"
+              }
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/contributor",
+                "val": "https://orcid.org/0000-0003-1980-3228"
+              },
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#creation_date",
+                "val": "2010-10-12T01:56:15Z"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0008001",
+          "lbl": "hematopoietic precursor cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "Any hematopoietic cell that is a precursor of some other hematopoietic cell type.",
+              "xrefs": [
+                "GOC:dos"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "hematopoietic precursor cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0011026",
+          "lbl": "progenitor cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A precursor cell that has a tendency to differentiate into a specific type of cell. They are descendants of stem cells, only they are more constrained in their differentiation potential or capacity for self-renewal, and are often more limited in both senses.",
+              "xrefs": [
+                "ISBN:978-1-62808-994-3",
+                "https://doi.org/10.1016/B978-0-12-409503-8.00002-0"
+              ]
+            },
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/contributor",
+                "val": "https://orcid.org/0000-0001-5208-3432"
+              },
+              {
+                "pred": "http://purl.org/dc/terms/description",
+                "val": "Progenitor cells are a specialized type of biological cell that can differentiate into specific cell types. While akin to stem cells in their differentiation capacity, progenitor cells are more limited in divisions and are already somewhat specialized. They can divide a restricted number of times and differentiate into a few closely related cell types, unlike stem cells with broader differentiation potential.\nPrimarily, progenitor cells play key roles in repairing and maintaining body tissues. During embryonic development, they significantly contribute to organogenesis, forming major organs. In adults, progenitor cells function as a repair system, replenishing lost cells in tissues like skin, blood, or the gut lining. Various types of progenitor cells have distinct roles; for instance, neuronal progenitor cells specialize into different brain cells, while myeloid progenitor cells develop into red and white blood cells and platelets.\nDisruptions to progenitor cells can lead to diseases, emphasizing their vital role in tissue homeostasis. Their unique properties also make them valuable in therapeutic approaches like tissue engineering and regenerative medicine. Researchers are exploring methods to direct these cells towards specific types to replace cells lost or damaged in conditions like spinal cord injuries, diabetes, and heart disease.\n\n(This extended description was generated by ChatGPT and reviewed by the CellGuide team, who added references, and by the CL editors, who approved it for inclusion in CL. It may contain information that applies only to some subtypes and species, and so should not be considered definitional.)"
+              },
+              {
+                "pred": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+                "val": "https://cellxgene.cziscience.com/cellguide/CL_0011026",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "http://www.w3.org/2000/01/rdf-schema#label",
+                      "val": "progenitor cell on CELLxGENE CellGuide"
+                    }
+                  ]
+                }
+              },
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "progenitor cell"
+              }
+            ]
+          }
+        },
+        {
+          "id": "http://purl.obolibrary.org/obo/CL_0011115",
+          "lbl": "precursor cell",
+          "type": "CLASS",
+          "meta": {
+            "definition": {
+              "val": "A cell that, by division or terminal differentiation, can give rise to other cell types.",
+              "xrefs": [
+                "GOC:dos"
+              ]
+            },
+            "comments": [
+              "Work is needed on GO 'cell differentiation' before it is clear whether the equivalent class definition 'native cell' that capable_of some 'cell differentiation' works. Also, may want to consider merging this with non-terminally differentiated cell."
+            ],
+            "subsets": [
+              "http://purl.obolibrary.org/obo/cl#cellxgene_subset"
+            ],
+            "basicPropertyValues": [
+              {
+                "pred": "http://purl.org/dc/terms/description",
+                "val": "Precursor cells represent an intermediate stage between an undifferentiated stem cell and a fully specialized cell. \nPossessing the ability to differentiate into one or multiple specialized cell types, precursor cells exhibit partial stem cell characteristics. This differentiation is vital for various aspects of biological development and maintenance. Neural precursor cells, for example, can give rise to neurons, astrocytes, and oligodendrocytes, while hematopoietic precursor cells can transform into different blood cell types. This orchestrated process aligns with the body's metabolic activities, ensuring the production of the right cell types in response to physiological needs.\nMoreover, the study of precursor cells has become a promising field in regenerative medicine and cellular therapies. However, it's essential to note that precursor cells have a more limited self-renewal capacity compared to stem cells, and once they start differentiating along a specific cell lineage, the process is often irreversible.\n\n(This extended description was generated by ChatGPT and reviewed by the CellGuide team, who added references, and by the CL editors, who approved it for inclusion in CL. It may contain information that applies only to some subtypes and species, and so should not be considered definitional.)"
+              },
+              {
+                "pred": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+                "val": "https://cellxgene.cziscience.com/cellguide/CL_0011115",
+                "meta": {
+                  "basicPropertyValues": [
+                    {
+                      "pred": "http://www.w3.org/2000/01/rdf-schema#label",
+                      "val": "precursor cell on CELLxGENE CellGuide"
+                    }
+                  ]
+                }
+              },
+              {
+                "pred": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "val": "precursor cell"
+              }
+            ]
+          }
+        }
+      ],
+      "edges": [
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000084",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000542",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000084",
+          "pred": "http://purl.obolibrary.org/obo/RO_0002202",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000827"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000219",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000000"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000226",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000255"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000226",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0002242"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000255",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000000"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000542",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000842"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000624",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000791",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000738",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000219"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000738",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000255"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000738",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000988",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000738",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0002242"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000789",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000084",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000791",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000789",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000791",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0002419"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000827",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000838",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000838",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0002031",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000838",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0011026"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000842",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000226"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000842",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000738",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0000988",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000000"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0002031",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000255"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0002031",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0008001"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0002242",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000000"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0002419",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000084",
+          "meta": {
+            "basicPropertyValues": [
+              {
+                "pred": "http://www.geneontology.org/formats/oboInOwl#is_inferred",
+                "val": "true"
+              }
+            ]
+          }
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0008001",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000988"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0011026",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0011115"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/CL_0011115",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000000"
+        }
+      ]
+    }
+  ]
+}

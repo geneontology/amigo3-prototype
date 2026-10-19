@@ -1,0 +1,137 @@
+# Raw bytes are cached by checksum. fetch --refresh explicitly advances inputs.
+# These URLs follow GO's 2026 naming convention. Pin release.geneontology.org
+# URLs here for a coordinated historical release.
+
+# Loaded species. A GAF or GPI source names one of these keys as `species`;
+# fetch copies its taxon onto the source and downloads UniProt lineages for
+# these taxa (and any allowed_taxa) so builds place each species in the
+# taxonomy. `label` is the browser name; `aliases` are other codes for the
+# species, such as ai-gene-review organism directories.
+species:
+  human:
+    label: Human
+    taxon: NCBITaxon:9606
+  pombe:
+    label: Fission yeast
+    taxon: NCBITaxon:4896
+    aliases: [SCHPO]
+  worm:
+    label: C. elegans
+    taxon: NCBITaxon:6239
+  ARATH:
+    label: Arabidopsis thaliana
+    taxon: NCBITaxon:3702
+  fly:
+    label: Fruit fly
+    taxon: NCBITaxon:7227
+    aliases: [DROME]
+  DICDI:
+    label: Dictyostelium discoideum
+    taxon: NCBITaxon:44689
+  # GO annotates the OR74A reference strain, not the species taxon (5141).
+  NEUCR:
+    label: Neurospora crassa
+    taxon: NCBITaxon:367110
+  POPTR:
+    label: Populus trichocarpa
+    taxon: NCBITaxon:3694
+  # GOA proteome file IDs are not taxonomy IDs: 109 is KT2440 (taxon 160488).
+  PSEPK:
+    label: P. putida KT2440
+    taxon: NCBITaxon:160488
+    aliases: [PSEPU]
+sources:
+  - id: rhea_structures
+    kind: rhea_sdf
+    url: https://ftp.expasy.org/databases/rhea/ctfiles/rhea.sdf.gz
+  - id: go_plus
+    kind: go_plus_json
+    url: https://current.geneontology.org/ontology/extensions/go-plus.json
+  - id: cl
+    kind: cl_json
+    url: https://purl.obolibrary.org/obo/cl/cl-basic.json
+  - id: rhea
+    kind: rhea_rdf
+    url: https://ftp.expasy.org/databases/rhea/rdf/rhea.rdf.gz
+  - id: rhea_go
+    kind: rhea_go
+    url: https://ftp.expasy.org/databases/rhea/tsv/rhea2go.tsv
+  - id: human_gaf
+    kind: gaf
+    species: human
+    url: https://current.geneontology.org/annotations/gaf/HUMAN-uniprot.gaf.gz
+  - id: human_gpi
+    kind: gpi
+    species: human
+    url: https://current.geneontology.org/annotations/gpi/HUMAN-uniprot.gpi.gz
+  - id: pombe_gaf
+    kind: gaf
+    species: pombe
+    # Includes annotations attributed specifically to the 972h- reference strain.
+    allowed_taxa: [NCBITaxon:4896, NCBITaxon:284812]
+    url: https://current.geneontology.org/annotations/gaf/SCHPO-mod.gaf.gz
+  - id: pombe_gpi
+    kind: gpi
+    species: pombe
+    url: https://current.geneontology.org/annotations/gpi/SCHPO-mod.gpi.gz
+  - id: worm_gaf
+    kind: gaf
+    species: worm
+    url: https://current.geneontology.org/annotations/gaf/CAEEL-mod.gaf.gz
+  - id: worm_gpi
+    kind: gpi
+    species: worm
+    url: https://current.geneontology.org/annotations/gpi/CAEEL-mod.gpi.gz
+  - id: arath_gaf
+    kind: gaf
+    species: ARATH
+    url: https://current.geneontology.org/annotations/gaf/ARATH-mod.gaf.gz
+  - id: arath_gpi
+    kind: gpi
+    species: ARATH
+    url: https://current.geneontology.org/annotations/gpi/ARATH-mod.gpi.gz
+  - id: fly_gaf
+    kind: gaf
+    species: fly
+    url: https://current.geneontology.org/annotations/gaf/DROME-mod.gaf.gz
+  - id: fly_gpi
+    kind: gpi
+    species: fly
+    url: https://current.geneontology.org/annotations/gpi/DROME-mod.gpi.gz
+  - id: dicty_gaf
+    kind: gaf
+    species: DICDI
+    url: https://current.geneontology.org/annotations/gaf/DICDI-mod.gaf.gz
+  - id: dicty_gpi
+    kind: gpi
+    species: DICDI
+    url: https://current.geneontology.org/annotations/gpi/DICDI-mod.gpi.gz
+  - id: neurospora_gaf
+    kind: gaf
+    species: NEUCR
+    url: https://current.geneontology.org/annotations/gaf/NEUCR-uniprot.gaf.gz
+  - id: neurospora_gpi
+    kind: gpi
+    species: NEUCR
+    url: https://current.geneontology.org/annotations/gpi/NEUCR-uniprot.gpi.gz
+  - id: poplar_gaf
+    kind: gaf
+    species: POPTR
+    url: https://current.geneontology.org/annotations/gaf/POPTR-uniprot.gaf.gz
+  - id: poplar_gpi
+    kind: gpi
+    species: POPTR
+    url: https://current.geneontology.org/annotations/gpi/POPTR-uniprot.gpi.gz
+  - id: putida_gaf
+    kind: gaf
+    species: PSEPK
+    url: https://ftp.ebi.ac.uk/pub/databases/GO/goa/proteomes/109.P_putida_KT2440.goa
+  - id: hgnc
+    kind: hgnc
+    url: https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt
+  - id: go
+    kind: obo
+    url: https://current.geneontology.org/ontology/go-basic.obo
+  - id: eco_mapping
+    kind: eco_mapping
+    url: https://raw.githubusercontent.com/evidenceontology/evidenceontology/master/gaf-eco-mapping.txt

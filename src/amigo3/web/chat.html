@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research chat · AmiGO 3</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/chat.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+<a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a>
+<a class="brand" href="/">AmiGO <span class="three">3</span></a><span class="header-note">Gene Ontology browser</span>
+<nav class="site-nav" aria-label="Main navigation"><a href="/">Search</a><a href="/chat" aria-current="page">Chat</a><a href="/megamodels">Megamodels</a><a href="/enrichment">Enrichment</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a></nav>
+</div></header>
+<main id="main-content" class="chat-page">
+<section class="chat-heading"><div><p class="eyebrow">EXPLORE WITH AN AGENT</p><h1>Research chat</h1><p class="subtitle">Ask about gene function. Follow the evidence and the queries behind each answer.</p></div><button id="new-session" disabled>New session</button></section>
+<div id="github-login" class="login-notice" hidden><p>Sign in to start a research chat.</p><a href="/auth/github?return_to=%2Fchat">Sign in with GitHub</a></div>
+<div class="chat-layout">
+<aside class="chat-context"><section class="session-browser" aria-label="Chat sessions"><div class="session-heading"><h2>Sessions</h2><span id="session-count"></span></div><p id="sessions-status" class="muted" role="status">Loading sessions…</p><ul id="session-list" aria-label="Saved sessions"></ul><p class="session-note">Switch conversations here. Sessions remain available for 30 minutes while you’re away.</p></section><hr><h2>Your research workspace</h2><span class="snapshot-badge">Read-only data</span><p>Genes, annotations, GO terms, biological models, reviews and research reports from this snapshot.</p><dl><dt>Build</dt><dd id="chat-build" class="mono">Loading…</dd><dt>Agent</dt><dd id="chat-agent">Not connected</dd><dt>Session</dt><dd id="session-id" class="mono">Not started</dd></dl><a href="/api/manifest">View data provenance →</a><hr><h3>Tools available</h3><p>Inspect the database schema, run SQL, and check source provenance.</p><p class="muted">You can follow links and return to this session. Sessions stay available for 30 minutes away from Chat. New session keeps your earlier conversations in the list.</p><button id="download-chat" disabled>Download transcript</button></aside>
+<section class="chat-main" aria-label="Agent conversation">
+<div class="connection-bar"><span class="status-dot" aria-hidden="true"></span><span id="chat-status" role="status" aria-live="polite">Checking chat availability…</span></div>
+<div class="approval-settings" aria-label="Approval settings"><label>All sessions <select id="global-permissions"><option value="ask">Ask for approval</option><option value="allow">Allow all</option></select></label><label>This session <select id="session-permissions" disabled><option value="inherit">Use global setting</option><option value="ask">Always ask</option><option value="allow">Allow all</option></select></label><span id="effective-permissions">Approvals required</span><p>Allow all approves waiting and future requests, including in background sessions. A session setting overrides the global setting. Database tools stay read-only.</p></div>
+<div id="chat-error" role="alert" hidden></div>
+<div id="auth-options" hidden></div>
+<div id="conversation" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions">
+<div id="welcome"><div class="welcome-mark" aria-hidden="true">✳</div><h2>Start with a biological question</h2><p>The agent can explore the local data, compare evidence, and show its work.</p><div class="prompt-examples"><button>Which human genes have kinase activity annotations?</button><button>Compare experimental and computational evidence in this build.</button><button>What data sources and species are available?</button></div></div>
+</div>
+<form id="chat-form"><label for="chat-input">Ask AmiGO</label><textarea id="chat-input" rows="3" maxlength="20000" placeholder="Ask a question about genes, annotations, or the evidence…" disabled></textarea><div class="composer-actions"><span>Enter to send · Shift+Enter for a new line</span><button id="stop" type="button" hidden>Stop</button><button id="send" type="submit" disabled>Send ↗</button></div></form>
+<p class="chat-footnote">Check answers against the cited records. Tool calls and permission requests appear in the conversation.</p>
+<section class="workspace-files" aria-label="Session workspace"><div class="workspace-heading"><h2>Workspace files</h2><button id="refresh-files" type="button" disabled>Refresh files</button></div><p class="workspace-note muted">Each session has its own temporary folder. Download files to keep before deleting the session, restarting the server, or leaving it for 30 minutes.</p><p id="workspace-root" class="mono muted"></p><div class="workspace-path"><button id="parent-folder" type="button" hidden>↑ Up</button><span id="workspace-path">/</span></div><p id="files-status" role="status">Connect to a session to see its files.</p><div class="file-browser"><ul id="workspace-files" aria-label="Workspace files"></ul><div id="file-preview" hidden><div class="file-preview-heading"><strong id="preview-name"></strong><a id="download-file">Download</a></div><p id="preview-status" class="muted"></p><pre id="preview-content"></pre></div></div></section>
+</section></div>
+</main><script src="/chat.js" defer></script>
+</body></html>

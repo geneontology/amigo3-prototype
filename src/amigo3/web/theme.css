@@ -1,0 +1,76 @@
+/* GO-inspired design tokens. This is independent CSS, not a framework theme. */
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/lato-400.ttf') format('truetype');
+}
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/lato-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/raleway-600.ttf') format('truetype');
+}
+
+:root {
+  color-scheme: light;
+  --go-navy: #00174f;
+  --go-blue: #4252af;
+  --go-blue-dark: #293a88;
+  --go-green: #28652e;
+  --go-gold: #f3c84b;
+  --text: #333;
+  --text-muted: #586475;
+  --border: #cdd6e5;
+  --surface: #fff;
+  --surface-muted: #f5f7fa;
+  --surface-blue: #e9effa;
+  --surface-hover: #e1e9f6;
+  --font-body: Lato, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: Raleway, 'Helvetica Neue', Arial, sans-serif;
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font: 14px/1.5 var(--font-body);
+}
+button, input, select { font: inherit; }
+button, a, summary { touch-action: manipulation; }
+button, summary { cursor: pointer; }
+a { color: var(--go-blue); text-decoration: none; }
+a:hover { color: var(--go-blue-dark); text-decoration: underline; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; }
+:where(button, a, input, select, summary):focus-visible {
+  outline: 3px solid var(--go-blue);
+  outline-offset: 3px;
+}
+[hidden] { display: none !important; }
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.muted { color: var(--text-muted); }
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  left: 12px;
+  top: -80px;
+  padding: 10px 18px;
+  background: white;
+  border: 2px solid var(--go-blue);
+}
+.skip-link:focus { top: 8px; }

@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "amigo3"
+version = "0.1.0"
+description = "A schema-driven browser for biological annotations and curation"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb>=1.4,<2",
+  "pyarrow>=19",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34",
+  "httpx>=0.28",
+  "pyyaml>=6",
+  "pydantic>=2.10,<3",
+  "go-standard-annotation-schema==0.0.5",
+  "markdown-it-py>=3,<5",
+  "rdkit==2025.9.6",
+  "genesets",
+  "networkx>=3.6,<4",
+]
+
+[project.scripts]
+amigo3 = "amigo3.cli:main"
+
+[project.optional-dependencies]
+chat = [
+    "mcp>=1.20,<2",
+    "websockets>=14,<17",
+]
+
+[tool.uv.sources]
+# MGSA enrichment (Rust, PyO3). Built from source until wheels are on PyPI, so
+# installing needs a Rust toolchain (https://rustup.rs).
+genesets = { git = "https://github.com/monarch-initiative/genesets", subdirectory = "python/genesets-py", rev = "1a5784015bacacb22d080bba79ac1470a1de130e" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.11",
+    "playwright>=1.50",
+    "typer>=0.27.3",
+]
+
+[tool.ruff]
+line-length = 110
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schema/amigo3.yaml" = "amigo3/schema.yaml"
+"schema/biology.yaml" = "amigo3/biology.yaml"

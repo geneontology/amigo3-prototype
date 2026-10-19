@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gene set enrichment · AmiGO 3</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/gene.css"><link rel="stylesheet" href="/enrichment.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a>
+    <a class="brand" href="/" aria-label="AmiGO 3 home">AmiGO <span class="three">3</span></a>
+    <span class="header-note">Gene Ontology browser</span>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Search</a><a href="/chat">Chat</a><a href="/?collection=terms">Ontology</a><a href="/megamodels">Megamodels</a><a href="/enrichment" aria-current="page">Enrichment</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a><a href="https://geneontology.org/search.html">GO Help ↗</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="gene-page enrichment-page">
+<section class="gene-intro"><div class="gene-heading"><p class="eyebrow">Gene set analysis</p><h1>Gene set enrichment</h1><p class="subtitle">Find functions represented in your gene list or connected to it through GO-CAMs.</p></div><div id="enrichment-stats" class="gene-stats"></div></section>
+<form id="enrichment-form" class="enrichment-form">
+  <div class="enrichment-lists">
+    <div class="geneset-picker">
+      <label>Example gene sets<select id="example-set"><option value="">Choose an example…</option></select></label>
+      <div id="geneset-search-box" class="geneset-search" hidden><label for="geneset-query">Search MyGeneset <small>independent sets only; GO-derived sets are excluded</small></label><select id="geneset-collection" aria-label="Gene set collection"></select><div class="geneset-search-row"><input id="geneset-query" type="search" placeholder="e.g. interferon, hypoxia, T cell, estradiol" autocomplete="off"><button type="button" id="geneset-search" class="secondary-button">Search</button></div></div>
+      <p id="geneset-search-status" class="geneset-status" role="status" aria-live="polite"></p>
+      <ul id="geneset-results" class="geneset-results" hidden></ul>
+      <div id="geneset-loaded" class="geneset-loaded" hidden></div>
+    </div>
+    <label>Study genes <small>symbols or identifiers, one per line or comma separated</small><textarea id="genes" rows="9" required spellcheck="false" placeholder="TP53&#10;MDM2&#10;UniProtKB:P38398"></textarea></label>
+    <details id="background-panel"><summary>Custom background (optional)</summary><label>Background genes <small id="background-hint">default: every gene with a qualifying annotation in the species</small><textarea id="background" rows="7" spellcheck="false"></textarea></label></details>
+  </div>
+  <div class="enrichment-options">
+    <label>Test against<select id="target"></select></label>
+    <label>Method<select id="analysis-method"></select></label>
+    <a class="help-link" href="/help/network-enrichment" target="_blank" rel="noopener">Network enrichment guide <span class="help-new-tab">(opens in new tab)</span></a>
+    <label>Species<select id="species"></select></label>
+    <fieldset id="network-options" hidden><legend>GO-CAM connectivity</legend>
+      <label>Network taxon<select id="network-taxon"></select></label>
+      <label>Test for<select id="network-alternative"><option value="greater">Enriched connectivity</option><option value="less">Depleted connectivity</option></select></label>
+      <label>Random sets<input id="network-permutations" type="number" min="99" max="19999" value="1999"></label>
+      <label>Random seed<input id="network-seed" type="number" min="0" max="4294967295" value="0"></label>
+      <a class="help-link" href="/help/network-enrichment#statistics" target="_blank" rel="noopener">How the comparison and FDR work <span class="help-new-tab">(opens in new tab)</span></a>
+      <p id="network-options-status" role="status"></p>
+    </fieldset>
+    <label class="go-only">Ontology aspect<select id="aspect"></select></label>
+    <label class="go-only">Evidence<select id="evidence"></select></label>
+    <fieldset id="exclusions" class="go-only enrichment-exclusions"><legend>Exclusions</legend></fieldset>
+    <div class="size-range"><label><span id="min-size-label">Min set size</span><input id="min-size" type="number" min="1" value="2"></label><label><span id="max-size-label">Max set size</span><input id="max-size" type="number" min="1" value="1000"></label></div>
+    <small id="neighborhood-size-help" hidden>Limits genes per neighborhood. <a class="help-link" href="/help/network-enrichment#filters" target="_blank" rel="noopener">Size limits vs. display filters <span class="help-new-tab">(opens in new tab)</span></a></small>
+    <label><span id="threshold-label">Show results with FDR ≤</span><input id="threshold" type="number" min="0" max="1" step="any" value="0.05"></label>
+    <div class="enrichment-actions"><button type="submit" class="primary-button">Run enrichment</button></div>
+  </div>
+</form>
+<div id="enrichment-error" role="alert" hidden></div>
+<p id="enrichment-status" role="status" aria-live="polite"></p>
+<div id="enrichment-results" hidden>
+  <section id="network-summary" class="gene-section" hidden><h2>Network coverage and comparison</h2><div id="network-summary-body"></div></section>
+  <section id="mapping" class="gene-section"><div class="section-heading"><h2>Input genes</h2><span id="mapping-summary" class="context-label"></span></div><div id="mapping-body"></div></section>
+  <section id="terms" class="gene-section"><div class="section-heading"><h2 id="terms-heading">Enriched terms</h2><span class="enrichment-tools"><label><input type="checkbox" id="show-all"> <span id="show-all-label">Show all tested sets with study genes</span></label><button type="button" id="download" class="text-button">Download TSV</button><button type="button" id="copy-link" class="text-button">Copy link</button></span></div><p id="method" class="section-note"></p><div id="result-tabs" class="result-tabs" role="tablist" aria-label="Enrichment views" hidden><button type="button" id="table-tab" role="tab" aria-selected="true" aria-controls="table-panel">Table</button><button type="button" id="graphs-tab" role="tab" aria-selected="false" aria-controls="graphs-panel" tabindex="-1">Graphs</button></div><div id="table-panel"><div class="table-scroll"><table id="term-table"><thead><tr><th scope="col" id="set-column">Term</th><th scope="col" class="num" id="study-column">Study</th><th scope="col" class="num" id="background-column">Background</th><th scope="col" class="num">Expected</th><th scope="col" class="num">Fold</th><th scope="col" class="num">P-value</th><th scope="col" class="num" id="score-column">FDR</th><th scope="col" id="genes-column">Genes</th></tr></thead><tbody></tbody></table></div><p id="term-note" class="section-note"></p></div>
+    <div id="graphs-panel" role="tabpanel" aria-labelledby="graphs-tab" hidden>
+      <section id="neighborhood-overview" hidden>
+        <h3>Neighborhood network</h3>
+        <p class="section-note">Select a neighborhood to inspect its genes below. <a class="help-link" href="/help/network-enrichment#neighborhoods" target="_blank" rel="noopener">How neighborhoods are found <span class="help-new-tab">(opens in new tab)</span></a></p>
+        <div class="overview-filters">
+          <label>Show top <select id="overview-limit"><option value="10">10</option><option value="20" selected>20</option><option value="40">40</option><option value="60">60</option></select></label>
+          <label>Minimum study members <input id="overview-min-study" type="number" min="0" step="1" value="2"></label>
+          <label>Rank by <select id="overview-rank"><option value="p_value">Lowest p-value</option><option value="study_count">Most study members</option><option value="fraction">Highest study fraction</option><option value="fold">Highest fold enrichment</option></select></label>
+          <label class="overview-check"><input id="overview-use-fdr" type="checkbox"> Apply BY FDR ≤ <span id="overview-fdr-value">0.05</span></label>
+        </div>
+        <p class="section-note">Exploratory view: nonsignificant results are included unless BY FDR is enabled. <a class="help-link" href="/help/network-enrichment#filters" target="_blank" rel="noopener">About these filters <span class="help-new-tab">(opens in new tab)</span></a></p>
+        <div class="connection-key"><span><i class="study-key"></i>Circle area reflects study members; labels show study / total</span><span><i class="significant-key"></i><span id="overview-fdr-legend">BY FDR ≤ 0.05</span></span></div>
+        <div class="network-graph-toolbar"><button type="button" class="secondary-button" id="overview-fit">Fit neighborhoods</button><button type="button" class="secondary-button" id="overview-png" disabled>Save overview PNG</button></div>
+        <p id="overview-status" role="status"></p><p id="overview-selection-note" class="section-note"></p>
+        <div id="neighborhood-overview-canvas" role="img" aria-label="Neighborhood network; equivalent neighborhood selector follows"></div>
+      </section>
+      <p id="graph-filter-note" class="section-note"></p>
+      <div id="graph-content" hidden>
+        <details id="count-chart-section" open><summary>Observed and expected connections</summary>
+        <p class="section-note">Select a term to inspect its contributing pairs. Counts describe connectivity; statistical significance is shown separately.</p>
+        <div class="connection-key"><span><i class="observed-key"></i>Observed</span><span><i class="expected-key"></i>Expected under degree matching</span></div>
+        <div id="connection-chart"></div></details>
+        <div class="network-graph-toolbar"><label><span id="graph-selector-label">GO term</span><select id="graph-term"></select></label><button type="button" id="network-fit" class="secondary-button" disabled>Fit graph</button><button type="button" id="network-png" class="secondary-button" disabled>Save PNG</button><button type="button" id="network-retry" class="secondary-button" hidden>Retry</button></div>
+        <label id="network-context-control" hidden><input type="checkbox" id="network-full-context"> Show full neighborhood context</label>
+        <p id="graph-term-score" class="section-note"></p>
+        <p class="section-note"><span id="graph-edge-description">Lines show functional connections, not necessarily physical interactions.</span> <a class="help-link" href="/help/network-enrichment#reading-graphs" target="_blank" rel="noopener">How to read these graphs <span class="help-new-tab">(opens in new tab)</span></a></p>
+        <div class="connection-key"><span><i class="study-key"></i>Study only</span><span><i class="neighbor-key"></i><span id="graph-neighbor-label">Term only</span></span><span><i class="overlap-key"></i><span id="graph-overlap-label">Study and term</span></span></div>
+        <p id="neighborhood-context" class="section-note" hidden></p><p id="network-graph-status" role="status" aria-live="polite"></p>
+        <div class="network-graph-layout"><div id="enrichment-network-canvas" role="img" aria-label="Contributing gene connections; equivalent pair selector follows"></div><aside class="network-graph-sidebar"><label>Inspect a pair<select id="graph-pair"><option value="">Choose a connecting pair…</option></select></label><div id="network-graph-inspector" class="network-evidence" aria-live="polite">Select a gene or pair to inspect its sources.</div></aside></div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<footer>
+  <div class="footer-links"><span>AmiGO 3 · Gene Ontology browser</span><a href="https://geneontology.org/">Gene Ontology ↗</a></div>
+  <span id="build"></span>
+</footer>
+<script src="/species.js" defer></script>
+<script src="/enrichment-graphs.js" defer></script>
+<script src="/enrichment.js" defer></script>
+</body></html>

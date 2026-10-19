@@ -1,0 +1,77 @@
+/* Annotation dashboard. Charts are ordinary keyboard-accessible filter buttons. */
+#result-views { display: flex; width: fit-content; gap: 3px; padding: 3px; margin: 0 0 16px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-muted); }
+#result-views button { border: 0; border-radius: 4px; background: transparent; color: var(--text-muted); padding: 7px 18px; font-weight: 600; }
+#result-views button[aria-pressed='true'] { background: white; color: var(--go-blue-dark); box-shadow: 0 1px 3px #00174f20; }
+#result-views[hidden], #dashboard[hidden], .pagination[hidden] { display: none; }
+#dashboard { min-width: 0; }
+.dashboard-intro { display: flex; justify-content: space-between; gap: 24px; padding: 22px; border: 1px solid var(--border); border-radius: 8px 8px 0 0; background: linear-gradient(110deg, #edf4fb, #f8fafc); }
+.dashboard-intro .eyebrow { margin: 0 0 7px; font-size: 10px; letter-spacing: 1.3px; }
+.dashboard-intro h2 { font: 600 24px var(--font-heading); color: var(--go-navy); margin: 0 0 8px; }
+.dashboard-intro p { font-size: 12px; line-height: 1.6; color: var(--text-muted); margin: 0; max-width: 420px; }
+.dashboard-total { display: flex; flex-direction: column; justify-content: center; flex-shrink: 0; text-align: right; }
+.dashboard-total strong { color: var(--go-navy); font-size: 34px; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.dashboard-total span { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+.dashboard-controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 16px 20px; background: white; border: 1px solid var(--border); border-top: 0; border-radius: 0 0 8px 8px; margin-bottom: 20px; }
+.dashboard-controls label { display: flex; flex: 1 1 110px; flex-direction: column; gap: 5px; font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.dashboard-controls select { width: 100%; min-width: 0; padding: 8px; border: 1px solid var(--border); border-radius: 4px; background: white; color: var(--text); font: 12px var(--font-body); }
+.dashboard-controls select:disabled { background: var(--surface-muted); }
+.dashboard-loading { padding: 45px; text-align: center; color: var(--text-muted); }
+.chart-card { min-width: 0; padding: 20px; border: 1px solid var(--border); border-radius: 8px; background: white; }
+.chart-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.chart-heading h3 { color: var(--go-navy); font-size: 15px; margin: 0; }
+.chart-heading > span { font-size: 10px; color: var(--text-muted); white-space: nowrap; }
+.chart-note { font-size: 11px; color: var(--text-muted); line-height: 1.6; margin: 10px 0; }
+.dashboard-breakdowns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin-top: 16px; }
+.breakdown-bars { display: grid; gap: 8px; }
+.breakdown-bar { display: grid; grid-template-columns: minmax(72px, 1fr) minmax(40px,1.1fr) auto; align-items: center; width: 100%; gap: 10px; background: transparent; border: 0; padding: 5px 0; text-align: left; font: 12px var(--font-body); color: var(--text); }
+.breakdown-bar:hover { background: var(--surface-blue); }
+.bar-label { overflow-wrap: anywhere; }
+.bar-track { height: 14px; background: var(--surface-muted); border-radius: 3px; overflow: hidden; }
+.bar-track > span { display: block; height: 100%; border-radius: 3px; }
+.bar-value { text-align: right; font-variant-numeric: tabular-nums; }
+.bar-value small { display: block; font-size: 10px; color: var(--text-muted); }
+.stacked-bars { display: grid; gap: 14px; padding: 14px 0; }
+.stack-row { display: grid; grid-template-columns: 135px minmax(0,1fr) 65px; align-items: center; gap: 12px; }
+.stack-label { border: 0; background: transparent; color: var(--go-blue-dark); padding: 0; font: 12px var(--font-body); text-align: left; overflow-wrap: anywhere; }
+.stack-label:hover { text-decoration: underline; }
+.stack-track { display: flex; height: 34px; background: var(--surface-muted); border-radius: 4px; }
+.stack-segment { display: block; min-width: 0; border: 0; border-right: 1px solid #ffffff50; padding: 0; color: white; font-size: 11px; position: relative; }
+.stack-segment span { display: block; overflow: hidden; white-space: nowrap; padding: 0 3px; }
+.stack-segment:hover, .stack-segment:focus-visible { outline: 2px solid var(--go-navy); outline-offset: 2px; z-index: 1; }
+.stack-remainder { background: #dbe0e6; color: #435269; font-size: 11px; line-height: 34px; overflow: hidden; white-space: nowrap; text-align: center; }
+.stack-total { text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 12px; }
+.chart-legend button, .remainder-legend { display: inline-flex; gap: 6px; align-items: center; padding: 3px 0; border: 0; background: none; color: var(--text); font-size: 11px; }
+.chart-legend button:hover { text-decoration: underline; }
+.chart-legend button > span, .remainder-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+.remainder-legend i { background: #dbe0e6; }
+.heatmap-scroll { max-width: 100%; overflow: auto; }
+.dashboard-heatmap, .joint-heatmap { width: 100%; border-collapse: separate; border-spacing: 3px; font-size: 12px; }
+.dashboard-heatmap caption, .joint-heatmap caption { text-align: left; font-size: 11px; color: var(--text-muted); padding: 4px 0 14px; }
+.dashboard-heatmap th, .joint-heatmap th { font-weight: 600; text-align: left; min-width: 65px; max-width: 180px; }
+.dashboard-heatmap th button, .joint-heatmap th button { border: 0; background: none; color: var(--go-blue-dark); text-align: left; padding: 8px 4px; font: inherit; overflow-wrap: anywhere; }
+.dashboard-heatmap td button, .joint-heatmap td button { width: 100%; min-width: 65px; padding: 12px 8px; border: 0; border-radius: 3px; font: inherit; font-variant-numeric: tabular-nums; }
+.dashboard-heatmap td button:hover:enabled, .joint-heatmap td button:hover:enabled { outline: 2px solid var(--go-navy); }
+.dashboard-heatmap td button:disabled, .joint-heatmap td button:disabled { cursor: default; }
+.heatmap-total, .heatmap-remainder { text-align: center; padding: 8px; font-variant-numeric: tabular-nums; }
+.heatmap-remainder { background: var(--surface-muted); }
+@media (max-width: 1050px) { .dashboard-breakdowns { grid-template-columns: minmax(0,1fr); } .dashboard-intro { flex-wrap: wrap; } .dashboard-total { text-align: left; } }
+@media (max-width: 750px) { .dashboard-intro, .chart-card { padding: 16px; } .dashboard-controls { padding: 12px; } .stack-row { grid-template-columns: 90px minmax(0,1fr) 45px; gap: 6px; } .chart-heading { flex-wrap: wrap; } }
+/* Small segments retain exact hover/focus labels without clipped numerals. */
+.stack-segment, .stack-remainder { container-type: inline-size; }
+.stack-segment span, .stack-remainder span { visibility: hidden; }
+@container (min-width: 72px) { .stack-segment span, .stack-remainder span { visibility: visible; } }
+/* Distributions of integer measures; columns and cells are range-filter buttons. */
+.distributions-heading { color: var(--go-navy); font: 600 18px var(--font-heading); margin: 28px 0 0; }
+.distribution-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 12px 0 16px; }
+.histogram { display: flex; align-items: stretch; gap: 3px; height: 170px; }
+.histogram-column { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; gap: 3px; border: 0; padding: 0; background: transparent; font: 10px var(--font-body); color: var(--text-muted); }
+.histogram-column:disabled { cursor: default; }
+.histogram-bar { display: block; min-height: 0; background: var(--go-blue); border-radius: 2px 2px 0 0; }
+.histogram-column:hover:enabled .histogram-bar, .histogram-column:focus-visible .histogram-bar { background: var(--go-navy); }
+.histogram-count { font-variant-numeric: tabular-nums; text-align: center; white-space: nowrap; overflow: hidden; }
+.histogram-tick { height: 26px; padding-top: 3px; border-top: 1px solid var(--border); text-align: center; overflow-wrap: anywhere; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.joint-controls { display: flex; gap: 12px; margin-bottom: 8px; }
+.joint-controls label { display: flex; flex-direction: column; gap: 5px; font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.joint-controls select { padding: 6px; border: 1px solid var(--border); border-radius: 4px; background: white; font: 12px var(--font-body); }
+.joint-heatmap td button { min-width: 44px; padding: 9px 4px; }

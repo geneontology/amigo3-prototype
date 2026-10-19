@@ -1,0 +1,9 @@
+region          = "us-east-1"
+name            = "amigo3-preview"
+hostname        = "amigo.example.org"
+# Resolve IDs with: gh api users/YOUR_HANDLE --jq .id
+github_user_ids = [123456] # Replace this example ID before deploying.
+site_access     = "private"
+instance_type   = "t3.large"
+disk_gb         = 100
+# budget_email = "you@example.org" # Account-wide alerts, not a spending cap.

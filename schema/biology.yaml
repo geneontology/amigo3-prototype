@@ -1,0 +1,229 @@
+id: https://w3id.org/amigo3/biology
+name: amigo3_biology
+title: GO-owned biological descriptions
+description: >-
+  Composition model for structured capabilities of GO terms. Chemicals are shared
+  references; reactions and other capabilities are owned descriptions. Search
+  projections in amigo3.yaml are derived from these normalized records.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  amigo3: https://w3id.org/amigo3/
+  GO: http://purl.obolibrary.org/obo/GO_
+  CL: http://purl.obolibrary.org/obo/CL_
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  RHEA: http://rdf.rhea-db.org/
+  GENERIC: http://rdf.rhea-db.org/Compound_
+  POLYMER: http://rdf.rhea-db.org/Compound_
+imports:
+  - linkml:types
+default_prefix: amigo3
+default_range: string
+classes:
+  BiologicalCatalog:
+    attributes:
+      terms:
+        range: GOTerm
+        multivalued: true
+        inlined_as_list: true
+      cell_types:
+        range: CellType
+        multivalued: true
+        inlined_as_list: true
+      chemicals:
+        range: Chemical
+        multivalued: true
+        inlined_as_list: true
+  GOTerm:
+    attributes:
+      id:
+        identifier: true
+        range: uriorcurie
+      label:
+        required: true
+      reactions:
+        range: Reaction
+        multivalued: true
+        inlined_as_list: true
+      transport_capabilities:
+        range: TransportCapability
+        multivalued: true
+        inlined_as_list: true
+      differentiation:
+        range: DifferentiationDescription
+        multivalued: true
+        inlined_as_list: true
+      biosynthesis:
+        range: BiosynthesisDescription
+        multivalued: true
+        inlined_as_list: true
+  Reaction:
+    description: >-
+      A term-owned description; its local identity is scoped to the owning GO term.
+      Rhea mapping assertions retain their own predicates and provenance. Multiple
+      descriptions on a term are distinct reactions, not a combined equation.
+    attributes:
+      id:
+        identifier: true
+        range: uriorcurie
+      rhea_id:
+        range: uriorcurie
+      direction:
+        range: ReactionDirection
+        required: true
+      left:
+        range: ReactionParticipant
+        multivalued: true
+        inlined_as_list: true
+        required: true
+      right:
+        range: ReactionParticipant
+        multivalued: true
+        inlined_as_list: true
+        required: true
+      mappings:
+        range: ReactionMapping
+        multivalued: true
+        inlined_as_list: true
+      source:
+        range: SourceReference
+        inlined: true
+  ReactionParticipant:
+    description: >-
+      Exactly one of stoichiometry or stoichiometry_expression is supplied by the
+      importer. Position is a stable display order, not a biochemical ordering.
+    attributes:
+      chemical:
+        range: Chemical
+        required: true
+        inlined: false
+      stoichiometry:
+        range: integer
+        minimum_value: 1
+      stoichiometry_expression:
+        description: A symbolic coefficient such as n or n+1; never coerced to 1.
+      compartment:
+        range: uriorcurie
+        description: Source-relative location, including Rhea In/Out; not an inferred GO compartment.
+  Chemical:
+    description: >-
+      Globally shared chemical identity and label. ChEBI IDs identify small
+      molecules. Rhea GENERIC/POLYMER accessions retain their distinct identities;
+      an underlying ChEBI class is not an identity mapping.
+    attributes:
+      id:
+        identifier: true
+        range: uriorcurie
+      label:
+        required: true
+      structure:
+        range: ChemicalStructure
+        inlined: true
+      formula:
+      charge:
+        description: Kept as supplied, including symbolic polymer charges.
+      underlying_chebi_id:
+        range: uriorcurie
+      polymerization_index:
+      reactive_part_ids:
+        range: uriorcurie
+        multivalued: true
+      source:
+        range: SourceReference
+        inlined: true
+  ChemicalStructure:
+    description: Source molfile and deterministic depiction; shared by all references to a chemical.
+    attributes:
+      molblock:
+      mol_sha256:
+      svg_sha256:
+      renderer:
+      source:
+        range: SourceReference
+        inlined: true
+  CellType:
+    attributes:
+      id:
+        identifier: true
+        range: uriorcurie
+      label:
+        required: true
+      definition:
+      parents:
+        range: CellType
+        multivalued: true
+        inlined: false
+      source:
+        range: SourceReference
+        inlined: true
+  DifferentiationDescription:
+    description: >-
+      A GO-owned target-cell description from an explicit GO-plus restriction.
+      Precursor cells are optional and never inferred from Cell Ontology lineage.
+    attributes:
+      id:
+        identifier: true
+        range: uriorcurie
+      target_cell_type:
+        range: CellType
+        required: true
+        inlined: false
+      precursor_cell_type:
+        range: CellType
+        inlined: false
+      predicate:
+        range: uriorcurie
+        required: true
+      axiom_kinds:
+        multivalued: true
+      source:
+        range: SourceReference
+        inlined: true
+  ReactionMapping:
+    attributes:
+      rhea_id:
+        range: uriorcurie
+        required: true
+      predicate:
+        range: uriorcurie
+        required: true
+      rule_id:
+        range: uriorcurie
+      source:
+        range: SourceReference
+        inlined: true
+  SourceReference:
+    attributes:
+      id:
+        required: true
+      sha256:
+      record_uri:
+        range: uriorcurie
+  TransportCapability:
+    description: Extension point; this release does not infer transport capabilities from reactions.
+    attributes:
+      cargo:
+        range: Chemical
+        multivalued: true
+        inlined: false
+      start:
+        range: uriorcurie
+      end:
+        range: uriorcurie
+  BiosynthesisDescription:
+    description: Extension point; a synthesized chemical does not imply a complete net reaction.
+    attributes:
+      products:
+        range: Chemical
+        multivalued: true
+        inlined: false
+      precursors:
+        range: Chemical
+        multivalued: true
+        inlined: false
+enums:
+  ReactionDirection:
+    permissible_values:
+      unspecified:
+      left_to_right:
+      right_to_left:
+      bidirectional:

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AmiGO 3 · Explore gene function</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/dashboard.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a>
+    <a class="brand" href="/" aria-label="AmiGO 3 home">AmiGO <span class="three">3</span></a>
+    <span class="header-note">Gene Ontology browser</span>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Search</a><a href="/chat">Chat</a><a href="/?collection=terms">Ontology</a><a href="/megamodels">Megamodels</a><a href="/enrichment">Enrichment</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a><a href="https://geneontology.org/search.html">GO Help ↗</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<div class="search-panel">
+<section class="intro"><div><p class="eyebrow">AMIGO 3</p><h1>Search Gene Ontology</h1></div><div class="scope"><span id="species-scope">Loaded annotation species</span></div></section>
+<form id="search-form" class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="Search genes, identifiers, or biology" placeholder="Search a gene, identifier, or biological function…" autocomplete="off"><button type="submit">Search <span aria-hidden="true">↵</span></button></form>
+<div class="examples">Try <button data-example="TP53">TP53</button><button data-example="PomBase:SPAC1002.01">PomBase:SPAC1002.01</button><button data-example="kinase">kinase</button></div>
+</div>
+<div class="tabs" role="tablist" aria-label="Collections"></div>
+<div class="workspace"><aside><div class="filter-heading"><h2>Refine results</h2><button id="clear" class="text-button">Reset</button></div><div id="facets"></div><details id="add-filter"><summary>Add filter</summary><label for="facet-picker">Choose a field</label><select id="facet-picker"><option value="">Select a field…</option></select></details><div class="aside-note">Explore the upstream annotations. Repository reviews appear as context where available.</div></aside><section class="results" aria-label="Search results"><div class="results-heading"><p id="status" role="status" aria-live="polite">Connecting to the index…</p><a id="gocam-network" class="text-button" hidden>Network view →</a><button id="copy-query" class="text-button">Copy query</button></div><div id="sort-controls" class="sort-controls"><label for="result-sort">Sort by</label><select id="result-sort" aria-describedby="sort-description"></select><span id="sort-description" class="fine"></span></div><div id="result-views" role="group" aria-label="Result view" hidden><button data-result-view="list" aria-pressed="true">List</button><button data-result-view="dashboard" aria-pressed="false">Dashboard</button></div><div id="display-tools" hidden><div class="display-presets" role="group" aria-label="Result display"></div><details id="customize-fields"><summary>Customize fields</summary><div id="display-fields"></div></details><button id="expand-reviews" class="text-button" hidden>Expand reviews on this page</button></div><p id="review-count-note" class="fine" hidden></p><div id="chips"></div><div id="error" role="alert" hidden></div><section id="dashboard" aria-label="Collection dashboard" hidden>
+<div class="dashboard-intro"><div><p id="dashboard-eyebrow" class="eyebrow">COLLECTION OVERVIEW</p><h2>Your selection, at a glance</h2><p id="dashboard-summary">All matching records, across every results page. Click a chart to refine your selection.</p></div><div class="dashboard-total"><strong id="dashboard-total">—</strong><span id="dashboard-total-label">matching records</span></div></div>
+<div id="dashboard-controls" class="dashboard-controls">
+<label>Group by<select id="dashboard-group"></select></label>
+<label>Split by<select id="dashboard-split"></select></label>
+<label>Display<select id="dashboard-chart"><option value="stacked">Bars</option><option value="heatmap">Heatmap</option></select></label>
+<label>Measure<select id="dashboard-scale"><option value="count">Record count</option><option value="percent">Percent within group</option></select></label>
+<label>Top values<select id="dashboard-limit"><option value="5">5</option><option value="10">10</option><option value="20">20</option></select></label>
+</div>
+<div id="dashboard-charts" aria-live="polite"></div>
+</section><div id="rows"></div><div class="pagination"><button id="previous" disabled>← Previous</button><span id="page-label"></span><button id="next" disabled>Next →</button></div></section></div>
+</main>
+<footer>
+  <div class="footer-links"><span>AmiGO 3 · Gene Ontology browser</span><a href="https://geneontology.org/">Gene Ontology ↗</a></div>
+  <span id="build"></span>
+</footer>
+<dialog id="detail"><div class="dialog-top"><span id="detail-type" class="eyebrow"></span><button id="close-detail" aria-label="Close details">✕</button></div><div id="detail-content"></div></dialog>
+<script src="/chat-links.js" defer></script>
+<script src="/species.js" defer></script>
+<script src="/presentation.js" defer></script>
+<script src="/hierarchies.js" defer></script>
+<script src="/dashboard.js" defer></script>
+<script src="/ranges.js" defer></script>
+<script src="/app.js" defer></script>
+</body></html>

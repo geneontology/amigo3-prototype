@@ -1,0 +1,78 @@
+{
+  "graphs": [
+    {
+      "logicalDefinitionAxioms": [
+        {
+          "definedClassId": "http://purl.obolibrary.org/obo/GO_0030217",
+          "genusIds": [
+            "http://purl.obolibrary.org/obo/GO_0030154"
+          ],
+          "restrictions": [
+            {
+              "propertyId": "http://purl.obolibrary.org/obo/RO_0002315",
+              "fillerId": "http://purl.obolibrary.org/obo/CL_0000084"
+            }
+          ]
+        },
+        {
+          "definedClassId": "http://purl.obolibrary.org/obo/GO_0043367",
+          "genusIds": [
+            "http://purl.obolibrary.org/obo/GO_0030154"
+          ],
+          "restrictions": [
+            {
+              "propertyId": "http://purl.obolibrary.org/obo/RO_0002315",
+              "fillerId": "http://purl.obolibrary.org/obo/CL_0000624"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0030217",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/GO_0030098"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0030217",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/GO_0042110"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0030217",
+          "pred": "http://purl.obolibrary.org/obo/RO_0002162",
+          "obj": "http://purl.obolibrary.org/obo/NCBITaxon_7742"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0030217",
+          "pred": "http://purl.obolibrary.org/obo/RO_0002315",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000084"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0043367",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/GO_0035710"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0043367",
+          "pred": "is_a",
+          "obj": "http://purl.obolibrary.org/obo/GO_0046632"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0043367",
+          "pred": "http://purl.obolibrary.org/obo/RO_0002162",
+          "obj": "http://purl.obolibrary.org/obo/NCBITaxon_7742"
+        },
+        {
+          "sub": "http://purl.obolibrary.org/obo/GO_0043367",
+          "pred": "http://purl.obolibrary.org/obo/RO_0002315",
+          "obj": "http://purl.obolibrary.org/obo/CL_0000624"
+        }
+      ],
+      "id": "http://purl.obolibrary.org/obo/go/extensions/go-plus.ofn",
+      "meta": {
+        "version": "http://purl.obolibrary.org/obo/go/releases/2026-07-26/extensions/go-plus.ofn"
+      }
+    }
+  ]
+}

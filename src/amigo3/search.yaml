@@ -1,0 +1,685 @@
+genes:
+  dashboard:
+    fields: [gene_product_type_groups, gene_product_types, species, has_review, evidence_codes, review_actions]
+    group: gene_product_type_groups
+    split: species
+    cards: [species, has_review]
+  recommended_sort:
+    description: Exact search matches first; then proteins, reviewed records, and annotation count.
+    sort:
+      - {field: gene_product_types, value: Protein, direction: desc}
+      - {field: has_review, direction: desc}
+      - {field: annotation_count, direction: desc}
+      - {field: symbol}
+  sort_options:
+    annotations:
+      label: Most annotations
+      sort: [{field: annotation_count, direction: desc}]
+    reviewed:
+      label: Reviewed first
+      sort: [{field: has_review, direction: desc}, {field: symbol}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - identifiers
+      - synonyms
+      - evidence_codes
+      - review_actions
+  display_fields:
+    identifiers: Identifiers
+    gene_product_type_ids: Gene product type IDs
+    synonyms: Synonyms
+    taxon_id: Taxon
+    annotated_subject_ids: Annotated subjects
+    evidence_codes: Evidence codes
+    term_ids: GO terms
+    review_actions: Review actions
+    review_description: Review summary
+    review_path: Review source
+  label: Genes & products
+  title_field: symbol
+  description_field: name
+  facets: [species, gene_product_types, has_review, evidence_codes]
+  facet_limits:
+    gene_product_types: 50
+  columns: [symbol, name, species, annotation_count, has_review]
+  field_labels:
+    gene_product_types: Gene product type
+    gene_product_type_groups: Gene product type
+    has_review: Gene review available
+    review_actions: Review action
+  review_count_note: Action facets count genes/products with that action anywhere in their review. Evidence and action filters may refer to different annotations on the same gene. Decisions have not been applied.
+  facet_groups:
+    - id: gene
+      label: Gene / product
+      fields: [species, gene_product_types, evidence_codes]
+    - id: coverage
+      label: Review coverage
+      fields: [has_review]
+    - id: review
+      label: Gene review
+      fields: [review_actions]
+      visible_when:
+        any_true_filters: [has_review]
+        display_fields: [review_actions, review_description, review_path]
+annotations:
+  dashboard:
+    fields: [species, evidence_code, method, aspect, assigned_by, is_redundant, has_review, has_annotation_review, review_actions, negation]
+    group: species
+    split: evidence_code
+    cards: [species, evidence_code]
+  recommended_sort:
+    description: Exact gene-symbol matches first; then non-redundant, IBA, assessed, and non-IEA annotations.
+    sort:
+      - {field: is_redundant, value: false, direction: desc}
+      - {field: evidence_code, value: IBA, direction: desc}
+      - {field: has_annotation_review, direction: desc}
+      - {field: evidence_code, value: IEA}
+      - {field: gene_symbol}
+      - {field: term_label}
+  sort_options:
+    agreement:
+      label: Review agreement
+      sort:
+        - {field: review_actions, value: ACCEPT, direction: desc}
+        - {field: evidence_code, value: IBA, direction: desc}
+        - {field: is_redundant, value: false, direction: desc}
+        - {field: has_annotation_review, direction: desc}
+        - {field: evidence_code, value: IEA}
+        - {field: term_label}
+        - {field: gene_symbol}
+    newest:
+      label: Newest annotations
+      sort: [{field: annotation_date, direction: desc}]
+    term:
+      label: GO term A–Z
+      sort: [{field: term_label}, {field: gene_symbol}]
+  label: Annotations
+  title_field: gene_symbol
+  description_field: term_label
+  facets: [species, aspect, evidence_code, method, assigned_by, negation, is_redundant, has_review]
+  columns: [gene_symbol, term_label, relation, evidence_code, method, assigned_by]
+  review_count_note: Action facets count annotation rows with matching assessments. A row can appear under multiple actions; combined review filters may match different assessments on that row. Decisions have not been applied.
+  field_labels:
+    method: Method
+    is_redundant: Redundant (broader term)
+    has_review: Gene review available
+    has_annotation_review: Matching assessment available
+    review_actions: Assessment action
+    review_replacement_ids: Proposed replacement term
+    review_has_support: Supporting evidence recorded
+    review_multiple: Multiple matching assessments
+    review_count: Matching assessment count
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    review:
+      label: Review
+      fields: [assessments]
+  display_fields:
+    assessments: Review assessments
+    db_object_id: Annotated subject
+    with_or_from: With / from
+    annotation_extensions: Annotation extensions
+    annotation_date: Annotation date
+    source_id: Source dataset
+  facet_groups:
+    - id: annotation
+      label: Annotation
+      fields: [species, aspect, evidence_code, method, assigned_by, negation, is_redundant]
+    - id: coverage
+      label: Review coverage
+      fields: [has_review, has_annotation_review]
+    - id: review
+      label: Review assessment
+      fields: [review_actions]
+      more_fields: [review_replacement_ids, review_has_support, review_multiple]
+      visible_when:
+        any_true_filters: [has_review, has_annotation_review]
+        display_fields: [assessments]
+reactions:
+  dashboard:
+    fields: [direction, is_transport, go_term_id, chemical_ids]
+    group: direction
+    split: is_transport
+    cards: [direction, is_transport]
+  display_presets:
+    compact: {label: Compact, fields: []}
+    details: {label: Details, fields: [left_chemical_ids, right_chemical_ids]}
+  label: Reactions
+  title_field: label
+  description_field: rhea_id
+  facets: [direction, is_transport, go_term_id, chemical_ids]
+  columns: [id, label, go_term_id, rhea_id, direction]
+  display_fields:
+    left_chemical_ids: Chemicals on the left
+    right_chemical_ids: Chemicals on the right
+    source_sha256: Source checksum
+  field_labels:
+    go_term_id: Owning GO term
+    chemical_ids: Chemicals on either side
+    left_chemical_ids: Chemicals on the left
+    right_chemical_ids: Chemicals on the right
+chemicals:
+  dashboard:
+    fields: [has_structure, source_id]
+    group: source_id
+    split: has_structure
+    cards: [has_structure, source_id]
+  display_presets:
+    compact: {label: Compact, fields: []}
+    details: {label: Details, fields: [charge, underlying_chebi_id, polymerization_index]}
+  label: Chemicals
+  title_field: label
+  description_field: formula
+  facets: []
+  columns: [id, label, formula]
+  display_fields:
+    charge: Charge
+    underlying_chebi_id: Underlying ChEBI class
+    polymerization_index: Polymerization index
+    reactive_part_ids: Reactive parts
+reaction_participants:
+  dashboard:
+    fields: [side, chemical_id, stoichiometry, compartment]
+    group: side
+    split: stoichiometry
+    cards: [side, compartment]
+  display_presets:
+    compact: {label: Compact, fields: []}
+    details: {label: Details, fields: [compartment, source_participant]}
+  label: Reaction participants
+  title_field: chemical_id
+  description_field: reaction_id
+  facets: [side, chemical_id, stoichiometry, compartment]
+  columns: [reaction_id, chemical_id, side, stoichiometry]
+  display_fields:
+    compartment: Compartment
+    source_participant: Source participant
+terms:
+  dashboard:
+    fields: [aspect, subsets, obsolete]
+    group: aspect
+    split: obsolete
+    cards: [subsets, aspect]
+  recommended_sort:
+    description: Exact search matches first; then GO generic slim members and term name.
+    sort: [{field: subsets, value: goslim_generic, direction: desc}, {field: label}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - synonyms
+      - alt_ids
+      - parent_ids
+  display_fields:
+    definition: Full definition
+    synonyms: Synonyms
+    alt_ids: Alternative IDs
+    parent_ids: Parent terms
+    is_a_closure: Is-a ancestors
+    isa_partof_closure: Is-a / part-of ancestors
+    obsolete: Obsolete
+    subsets: GO subsets / slims
+  label: GO terms
+  title_field: label
+  description_field: definition
+  facets: [aspect, subsets, obsolete]
+  facet_limits:
+    subsets: 100
+  field_labels:
+    subsets: GO subset / slim
+  columns: [id, label, aspect]
+gocams:
+  dashboard:
+    fields: [taxon_ids, status, has_review]
+    group: taxon_ids
+    split: status
+    cards: [status, has_review]
+    distributions: [activity_count, enabled_by_count, causal_edge_count, longest_path_length, component_count]
+    joint: [activity_count, longest_path_length]
+  # Integer facets shown as range sliders; definitions follow gocam-py's query index.
+  range_facets:
+    activity_count: {scale: log}
+    enabled_by_count: {scale: log}
+    causal_edge_count: {scale: log}
+    longest_path_length: {scale: linear}
+    component_count: {scale: log}
+  recommended_sort:
+    description: Exact search matches first; then reviewed models and activity count.
+    sort: [{field: has_review, direction: desc}, {field: activity_count, direction: desc}, {field: label}]
+  sort_options:
+    activities:
+      label: Most activities
+      sort: [{field: activity_count, direction: desc}]
+    longest_path:
+      label: Longest causal path
+      sort: [{field: longest_path_length, direction: desc}, {field: activity_count, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - gene_symbols
+      - taxon_ids
+      - term_ids
+    structure:
+      label: Structure
+      fields: [activity_count, enabled_by_count, causal_edge_count, longest_path_length, component_count]
+  display_fields:
+    description: Full description
+    gene_symbols: Genes
+    gene_ids: Gene IDs
+    participant_ids: Participants
+    taxon_ids: Taxa
+    term_ids: GO terms
+    module_ids: Modules
+    family_ids: Families
+    has_review: Review available
+    activity_count: Activities
+    enabled_by_count: Enabling genes / complexes
+    causal_edge_count: Causal edges
+    longest_path_length: Longest causal path
+    component_count: Disconnected subgraphs
+  field_labels:
+    activity_count: Activities
+    enabled_by_count: Enabling genes / complexes
+    causal_edge_count: Causal edges
+    longest_path_length: Longest causal path
+    component_count: Disconnected subgraphs
+  label: GO-CAMs
+  title_field: label
+  description_field: description
+  facets: [taxon_ids, status, has_review]
+  columns: [label, taxon_ids, activity_count, has_review]
+modules:
+  dashboard:
+    fields: [kind, scope, status]
+    group: kind
+    split: status
+    cards: [kind, scope]
+    distributions: [realization_count, variant_set_count, part_count, longest_path_length, max_depth, annoton_count]
+    joint: [part_count, variant_set_count]
+  # AND/OR structure: parts are conjunctive, variant sets are OR branch points.
+  range_facets:
+    realization_count: {scale: log}
+    variant_set_count: {scale: linear}
+    variant_count: {scale: linear}
+    part_count: {scale: linear}
+    longest_path_length: {scale: linear}
+    max_depth: {scale: linear}
+    annoton_count: {scale: log}
+    connection_count: {scale: linear}
+  recommended_sort:
+    description: Exact search matches first; then reviewed modules and node count.
+    sort: [{field: has_review, direction: desc}, {field: node_count, direction: desc}, {field: label}]
+  sort_options:
+    nodes:
+      label: Most nodes
+      sort: [{field: node_count, direction: desc}]
+    variability:
+      label: Most variable
+      sort: [{field: realization_count, direction: desc}, {field: variant_set_count, direction: desc}]
+    longest_path:
+      label: Longest path
+      sort: [{field: longest_path_length, direction: desc}, {field: part_count, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - scope
+      - gene_symbols
+      - term_ids
+      - model_ids
+    structure:
+      label: Structure
+      fields: [realization_count, variant_set_count, part_count, longest_path_length, max_depth, annoton_count]
+  display_fields:
+    description: Full description
+    scope: Scope
+    gene_symbols: Genes
+    gene_ids: Gene IDs
+    term_ids: GO terms
+    family_ids: Families
+    model_ids: GO-CAMs
+    module_ids: Related modules
+    taxon_ids: Taxa
+    functional_coherence: Functional coherence
+    has_review: Review available
+    realization_count: Realizations (variability)
+    variant_set_count: OR branch points
+    variant_count: Variants
+    part_count: AND parts
+    longest_path_length: Longest path
+    max_depth: Nesting depth
+    annoton_count: Annotons
+    connection_count: Connections
+  field_labels:
+    realization_count: Realizations (variability)
+    variant_set_count: OR branch points
+    variant_count: Variants
+    part_count: AND parts
+    longest_path_length: Longest path
+    max_depth: Nesting depth
+    annoton_count: Annotons
+    connection_count: Connections
+  label: Modules
+  title_field: label
+  description_field: description
+  facets: [kind, status, scope]
+  columns: [label, kind, node_count]
+families:
+  dashboard:
+    fields: [functional_coherence, has_review, taxon_ids]
+    group: functional_coherence
+    split: has_review
+    cards: [taxon_ids, has_review]
+  recommended_sort:
+    description: Exact search matches first; then reviewed families and cached member count.
+    sort: [{field: has_review, direction: desc}, {field: member_count, direction: desc}, {field: label}]
+  sort_options:
+    members:
+      label: Most cached members
+      sort: [{field: member_count, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - gene_symbols
+      - taxon_ids
+      - functional_coherence
+  display_fields:
+    description: Full description
+    gene_symbols: Indexed genes
+    gene_ids: Indexed gene IDs
+    participant_ids: Cached participants
+    taxon_ids: Taxa
+    term_ids: GO terms
+    module_ids: Modules
+    model_ids: GO-CAMs
+    family_ids: Related families
+    functional_coherence: Functional coherence
+    reported_protein_count: Reported proteins
+    has_review: Review available
+  label: Families
+  title_field: label
+  description_field: description
+  facets: [has_review, functional_coherence, taxon_ids]
+  columns: [label, member_count, status]
+reports:
+  dashboard:
+    fields: [provider, kind, scope, organism, has_artifacts]
+    group: provider
+    split: kind
+    cards: [organism, scope]
+  recommended_sort:
+    description: Exact search matches first; then newest reports.
+    sort: [{field: created_at, direction: desc}, {field: label}]
+  sort_options:
+    newest:
+      label: Newest reports
+      sort: [{field: created_at, direction: desc}]
+    longest:
+      label: Longest reports
+      sort: [{field: word_count, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - model
+      - scope
+      - subject_ids
+      - source_path
+  display_fields:
+    id: Report ID
+    model: Research model
+    scope: Subject type
+    subject_ids: Subject IDs
+    gene_ids: Genes
+    term_ids: GO terms
+    module_ids: Modules
+    family_ids: Families
+    model_ids: GO-CAMs
+    created_at: Created
+    artifact_count: Artifact count
+    has_artifacts: Downloadable artifacts
+    source_path: Source file
+  label: Reports
+  title_field: label
+  description_field: description
+  facets: [provider, kind, scope, organism, has_artifacts]
+  columns: [label, provider, kind, organism]
+  field_labels:
+    provider: Research provider
+    kind: Report type
+    scope: Subject type
+    has_artifacts: Downloadable artifacts
+projects:
+  dashboard:
+    fields: [tags, maturity, project_species, project_collections]
+    group: tags
+    split: maturity
+    cards: [project_species, project_collections]
+  recommended_sort:
+    description: Exact search matches first; then projects with the most referenced resources.
+    sort: [{field: resource_count, direction: desc}, {field: label}]
+  sort_options:
+    resources:
+      label: Most referenced resources
+      sort: [{field: resource_count, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - project_collections
+      - declared_genes
+      - source_path
+  display_fields:
+    id: Project ID
+    project_collections: Project collections
+    declared_genes: Declared genes
+    gene_ids: Referenced gene IDs
+    term_ids: GO terms
+    family_ids: Families
+    model_ids: GO-CAMs
+    module_ids: Modules
+    report_ids: Reports
+    rule_ids: Rules / mappings
+    project_ids: Related projects
+    resource_count: Referenced resource count
+    source_path: Source file
+  label: Projects
+  title_field: label
+  description_field: description
+  facets: [maturity, tags, project_species, project_collections]
+  columns: [label, maturity, tags, project_species]
+  field_labels:
+    maturity: Project maturity
+    tags: Project tags
+    project_species: Declared species
+    project_collections: Project collection
+rules:
+  dashboard:
+    fields: [kind, rule_source, has_review, review_status, review_action, mapping_scope, predicate_id, predicate_modifier, antecedent_status]
+    group: kind
+    split: rule_source
+    cards: [has_review, review_action]
+  recommended_sort:
+    description: Exact search matches first; then rules with structured reviews.
+    sort: [{field: has_review, direction: desc}, {field: label}]
+  sort_options:
+    reviewed:
+      label: Reviewed first
+      sort: [{field: has_review, direction: desc}, {field: label}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - subject_id
+      - object_id
+      - mapping_justification
+      - premise_ids
+  display_fields:
+    id: Rule / mapping ID
+    subject_id: Subject
+    object_id: Object / conclusion
+    mapping_justification: Mapping justification
+    mapping_set_id: Mapping set
+    premise_ids: Premises
+    condition_set_count: Condition sets
+    antecedent_status: Antecedent representation
+    review_action: Review action
+    review_status: Review status
+    has_review: Structured review
+    taxon_ids: Taxa
+    term_ids: GO terms
+    family_ids: Families
+    gene_ids: Genes
+    project_ids: Projects
+    source_path: Source file
+  label: Rules & mappings
+  title_field: label
+  description_field: description
+  facets: [kind, rule_source, has_review, review_status, review_action, mapping_scope, predicate_id, predicate_modifier, antecedent_status]
+  columns: [label, kind, rule_source, review_status, review_action]
+  field_labels:
+    kind: Record type
+    rule_source: Source collection
+    has_review: Structured review
+    review_status: Source review status
+    review_action: Rule review action
+    mapping_scope: Propagation scope
+    predicate_id: Mapping / conclusion relation
+    predicate_modifier: Mapping modifier
+    antecedent_status: Antecedent representation
+references:
+  dashboard:
+    fields: [kind, annotation_species, evidence_codes, aspects, has_review, publication_type, has_abstract]
+    group: kind
+    split: has_review
+    cards: [annotation_species, has_review]
+  recommended_sort:
+    description: Exact search matches first; then references supporting the most annotations.
+    sort: [{field: annotation_count, direction: desc}, {field: label}]
+  sort_options:
+    annotations:
+      label: Most annotations
+      sort: [{field: annotation_count, direction: desc}]
+    genes:
+      label: Most genes
+      sort: [{field: gene_count, direction: desc}]
+    reviews:
+      label: Most cited in reviews
+      sort: [{field: review_count, direction: desc}]
+    newest:
+      label: Newest
+      sort: [{field: year, direction: desc}]
+  display_presets:
+    compact:
+      label: Compact
+      fields: []
+    details:
+      label: Details
+      fields:
+      - evidence_codes
+      - assigned_by_groups
+      - review_gene_ids
+      - doi
+  display_fields:
+    id: Reference ID
+    journal: Journal
+    year: Year
+    doi: DOI
+    authors: Authors
+    publication_type: Publication type
+    annotation_count: Annotations
+    gene_count: Annotated genes
+    term_count: GO terms
+    review_count: Citing gene reviews
+    evidence_codes: Evidence codes
+    assigned_by_groups: Assigned by
+    review_gene_ids: Citing gene reviews
+    model_ids: GO-CAMs
+    module_ids: Modules
+    family_ids: Families
+    source_path: Cached publication
+  label: References
+  title_field: label
+  description_field: description
+  facets: [kind, annotation_species, evidence_codes, aspects, assigned_by_groups, has_review, publication_type, has_abstract]
+  columns: [label, kind, year, annotation_count, review_count]
+  field_labels:
+    kind: Reference type
+    annotation_species: Annotated species
+    evidence_codes: Evidence code
+    aspects: GO aspect
+    assigned_by_groups: Assigned by
+    has_review: Cited in a gene review
+    publication_type: Publication type
+    has_abstract: Abstract cached
+cell_types:
+  dashboard:
+    fields: [obsolete, parent_ids]
+    group: parent_ids
+    split: obsolete
+    cards: [obsolete, parent_ids]
+  label: Cell types
+  title_field: label
+  description_field: definition
+  facets: [obsolete, parent_ids]
+  columns: [label, definition]
+  display_fields:
+    synonyms: Synonyms
+    parent_ids: Parent cell types
+    is_a_closure: Cell type ancestors
+  display_presets:
+    compact: {label: Compact, fields: []}
+    details: {label: Details, fields: [synonyms, parent_ids]}
+differentiations:
+  dashboard:
+    fields: [target_cell_type_id, target_cell_type_closure, axiom_kinds]
+    group: axiom_kinds
+    split: target_cell_type_id
+    cards: [target_cell_type_id, axiom_kinds]
+  label: Cell differentiation
+  title_field: label
+  description_field: target_cell_type_id
+  facets: [target_cell_type_id, target_cell_type_closure, axiom_kinds]
+  columns: [label, go_term_id, target_cell_type_id]
+  field_labels:
+    target_cell_type_id: Exact target cell type
+    target_cell_type_closure: Target cell type or subtype
+  display_fields:
+    go_term_id: Owning GO term
+    target_cell_type_id: Target cell type
+    predicate: Source relation
+    source_id: Source
+    source_sha256: Source checksum
+  display_presets:
+    compact: {label: Compact, fields: []}
+    details: {label: Details, fields: [go_term_id, target_cell_type_id, predicate]}

@@ -1,0 +1,17 @@
+# Prepare these verified artifacts with: uv run scripts/compare_refseq_go.py
+# Paths are relative to this configuration file. Preloads are opt-in at build time.
+sets:
+  - id: ncbi-kt2440
+    label: NCBI PGAP · P. putida KT2440
+    source_kind: external_annotation
+    method: NCBI PGAP
+    description: RefSeq electronic annotations compared with the build's UniProt-GOA KT2440 source.
+    species: PSEPK
+    taxon: NCBITaxon:160488
+    assembly: GCF_000007565.2
+    baseline_sources: [putida_gaf]
+    gaf: ../data/refseq-pilot/preload/ncbi.gaf.gz
+    mapping: ../data/refseq-pilot/preload/mapping.tsv
+    subjects: ../data/refseq-pilot/preload/subjects.tsv
+    provenance: ../data/refseq-pilot/preload/provenance.json
+    gene_xrefs: ../data/refseq-pilot/preload/gene_xrefs.tsv

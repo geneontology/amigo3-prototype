@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Lint and package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.3"
+          python-version: "3.12"
+          enable-cache: true
+      - name: Install locked dependencies
+        run: uv sync --locked --dev --extra chat
+      - name: Python lint and formatting
+        run: |
+          uv run --no-sync ruff check .
+          uv run --no-sync ruff format --check .
+      - name: JavaScript syntax
+        run: |
+          for file in src/amigo3/web/*.js; do
+            node --check "$file"
+          done
+      - name: Build source distribution and wheel
+        run: uv build --no-sources
+
+  tests:
+    name: Tests (Python ${{ matrix.python }}, Solr 9.9)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.12"]
+    services:
+      solr:
+        image: solr:9.9.0-slim
+        env:
+          SOLR_HEAP: 1g
+        ports:
+          - 8983:8983
+        options: >-
+          --health-cmd="curl --fail --silent http://localhost:8983/solr/admin/info/system"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=20
+          --health-start-period=10s
+    env:
+      AMIGO3_TEST_SOLR: http://127.0.0.1:8983/solr
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.3"
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - name: Install locked dependencies
+        run: uv sync --locked --dev --extra chat
+      # The Docker image keeps bundled configsets under its installation,
+      # while Core Admin resolves named configsets under SOLR_HOME.
+      - name: Prepare Solr configset for Core Admin
+        run: |
+          docker exec '${{ job.services.solr.id }}' sh -c \
+            'mkdir -p /var/solr/data/configsets && cp -R /opt/solr/server/solr/configsets/_default /var/solr/data/configsets/'
+      - name: Unit, API and Solr integration tests
+        run: uv run --no-sync pytest --ignore=tests/browser -q --tb=short
+      - name: Solr logs on failure
+        if: failure()
+        run: docker logs '${{ job.services.solr.id }}'
+
+  browser:
+    name: Browser journeys (Chromium)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      AMIGO3_TEST_BROWSER: "1"
+      AMIGO3_BROWSER_ARTIFACTS: data/browser-failures
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.3"
+          python-version: "3.12"
+          enable-cache: true
+      - name: Install locked dependencies
+        run: uv sync --locked --dev --extra chat
+      - name: Install Chromium
+        run: uv run --no-sync playwright install --with-deps chromium
+      - name: Browser journeys, mobile layouts and cached upgrades
+        run: uv run --no-sync pytest tests/browser -q --tb=short
+      - name: Agentic chat journeys with fixture agent
+        env:
+          AMIGO3_BROWSER_CHANNEL: chromium
+        run: uv run --no-sync python scripts/check_chat_browser.py
+      - name: Upload browser failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: browser-failures
+          path: data/browser-failures/
+          if-no-files-found: ignore
+          retention-days: 14

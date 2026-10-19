@@ -1,0 +1,20 @@
+<div class="mega-page">
+  <div class="mega-intro"><div><p class="eyebrow">GO-CAM · connected biology</p><h2>Explore neighboring models</h2><p>Extend this model with neighboring pathways and inspect their activity connections.</p></div></div>
+  <p id="mega-error" role="alert" hidden></p>
+  <div class="mega-layout">
+    <aside class="mega-sidebar" aria-label="Models and linking options">
+      <section><h2>Build a workspace</h2><label for="model-search">Find a model</label><input id="model-search" type="search" placeholder="Pathway, species or CURIE…" autocomplete="off" disabled><div id="model-results" class="model-results"></div><h3>Selected <span id="selected-count">0 / 12</span></h3><div id="selected-models"></div></section>
+      <section><h2>Neighboring models <span id="neighbor-count"></span></h2><p class="mega-note">Ranked by the variety of link types, then the number of matching activity pairs. This is not a confidence score.</p><div id="neighbor-models">Select a model to discover neighbors.</div></section>
+      <section><details id="link-settings"><summary>Linking options</summary><p class="mega-note">Choose what connects two models.</p><div id="link-criteria"></div><div id="chemical-options"><label for="chemical-location">Chemical compartments</label><select id="chemical-location"><option value="same">Require same known location</option><option value="compatible">Allow unknown locations</option><option value="any">Ignore location</option></select><label class="check-line"><input type="checkbox" id="include-currency"> Include common metabolites</label><details><summary>Which metabolites?</summary><p id="currency-terms" class="mono"></p></details></div><p class="mega-note">Exact identifiers, within the same recorded species. Candidate links are hypotheses to inspect; activities stay distinct.</p></details></section>
+    </aside>
+    <div class="mega-workspace">
+      <div class="mega-toolbar"><div class="view-tabs" role="group" aria-label="Graph view"><button id="view-models" aria-pressed="true">Model overview</button><button id="view-activities" aria-pressed="false">Activities</button></div><div class="mega-tools"><button id="mega-fit" disabled>Fit</button><button id="mega-in" aria-label="Zoom in" disabled>+</button><button id="mega-out" aria-label="Zoom out" disabled>−</button><button id="mega-reset" disabled>Reset layout</button><button id="mega-download" disabled>Download JSON</button></div></div>
+      <div class="mega-legend"><span><i class="solid-key"></i>Recorded causal relationship</span><span><i class="candidate-key"></i>Cross-model candidate</span><span class="muted">Select a node or connection · drag to pan · scroll to zoom</span></div>
+      <p id="mega-status" role="status" aria-live="polite">Loading the model catalog…</p>
+      <div id="mega-canvas" role="img" aria-label="Interactive GO-CAM megamodel. The selector and connections list below provide keyboard access."></div>
+      <div class="mega-select"><label for="mega-node">Inspect</label><select id="mega-node" disabled><option value="">Select a model or activity…</option></select></div>
+      <section id="mega-inspector" aria-live="polite"><h2>Start with a pathway</h2><p>Add a model, then follow its neighbors. The model overview shows how pathways connect; the activity view keeps the source model boundaries visible.</p></section>
+      <details id="mega-connections"><summary>Connections & source records</summary><div id="connection-list"></div></details>
+    </div>
+  </div>
+</div>

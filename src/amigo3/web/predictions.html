@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Compare predictions · AmiGO 3</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/gene.css"><link rel="stylesheet" href="/predictions.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a><a class="brand" href="/">AmiGO <span class="three">3</span></a><span class="header-note">Gene Ontology browser</span><nav class="site-nav" aria-label="Main navigation"><a href="/">Search</a><a href="/?collection=terms">Ontology</a><a href="/enrichment">Enrichment</a><a href="/predictions" aria-current="page">Predictions</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a></nav></div></header>
+<main id="main-content" class="gene-page predictions-page">
+<section class="gene-intro"><div class="gene-heading"><p class="eyebrow">External annotation sets</p><h1>Compare predictions</h1><p class="subtitle">Explore what an external set adds to the annotations in this AmiGO release.</p></div></section>
+<p id="error" role="alert" hidden></p><p id="loading" role="status">Loading preloaded sets…</p>
+<p id="empty" hidden>No external sets are preloaded in this release.</p>
+<div id="workspace" hidden>
+<label class="set-picker">Preloaded set<select id="prediction-set"></select></label>
+<p id="description"></p><p id="baseline-warning" class="notice" hidden>The configured baseline is unavailable in this release. Source rows remain browsable; overlap counts are not available.</p>
+<p class="fine">Whole-set summary. Click a comparison card or use the facets below to explore source rows.</p><div id="metrics" class="prediction-metrics"></div>
+<p id="scope"></p>
+<p class="scope-note">Overlap measures agreement with the selected baseline, not biological correctness. Specificity follows is-a relationships. Relation, negation and annotation extensions are checked separately for assertion matches. External rows do not enter the default annotation or enrichment counts.</p>
+<details class="provenance"><summary>Sources, dates and mapping coverage</summary><div id="provenance"></div><div id="source-downloads"></div><a id="summary-download">Download summary JSON</a></details>
+<p id="gene-scope" hidden></p><div class="prediction-workspace"><aside aria-label="Prediction facets"><h2>Refine predictions</h2><p class="fine">Counts are source rows. Selections within a facet are combined with OR; different facets use AND.</p><div id="prediction-facets"></div></aside><div class="prediction-results"><form id="filters" class="prediction-filters"><label class="search-label">Protein, term or model<input type="search" id="search" maxlength="200" placeholder="e.g. rmf, GO:0141014 or TIGR00810"></label><button type="submit">Apply</button><button type="button" id="reset-predictions">Clear filters</button><a id="export" class="secondary-button">Download filtered TSV</a></form>
+<div id="prediction-chips" aria-label="Active prediction filters"></div><div class="prediction-pagination"><span id="row-count" role="status" aria-live="polite"></span><button type="button" id="previous">Previous</button><button type="button" id="next">Next</button></div>
+<div class="prediction-table-wrap"><table class="prediction-table"><thead><tr><th>Protein</th><th>GO term</th><th>Comparison</th><th>Evidence and baseline</th></tr></thead><tbody id="rows"></tbody></table></div></div></div>
+</div>
+</main><footer><div class="footer-links"><span>AmiGO 3 · Gene Ontology browser</span><a href="https://geneontology.org/">Gene Ontology ↗</a></div><span id="build"></span></footer>
+<script src="/predictions-common.js" defer></script><script src="/predictions.js" defer></script>
+</body></html>

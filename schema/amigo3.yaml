@@ -1,0 +1,1086 @@
+id: https://w3id.org/amigo3/search
+name: amigo3_search
+title: AmiGO 3 search projections
+description: Published search records. GAF and GPI are source adapters; this schema
+  describes the engine-neutral projections. Annotation names align with GO Standard
+  Annotation Schema, but GAF disjunctions remain grouped and relation labels are preserved.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  amigo3: https://w3id.org/amigo3/
+imports:
+- linkml:types
+default_prefix: amigo3
+default_range: string
+classes:
+  GeneRecord:
+    description: Genes & products
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      symbol:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      name:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      synonyms:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      identifiers:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      taxon_groups:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      taxon_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      species:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      record_kind:
+        description: Legacy identity grouping; retained for existing query URLs.
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      gene_product_types:
+        description: Distinct supplied GPI/GAF product types, or Unspecified. A record may have multiple types.
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      gene_product_type_ids:
+        description: Product type ontology CURIEs normalized from GPI/GAF; raw assertions remain in the integration database.
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      gene_product_type_groups:
+        description: Distinct reflexive is_a closure over the product type navigation subset; includes ncRNA ancestors.
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      annotation_count:
+        range: integer
+        annotations:
+          facet: false
+          searchable: false
+      annotated_subject_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      evidence_codes:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      term_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      isa_partof_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      has_review:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      review_description:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      review_actions:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      review_path:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+  AnnotationRecord:
+    description: Annotations
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      record_fingerprint:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      db_object_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      canonical_subject_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      gene_product_form_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      relation:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      negation:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      ontology_class_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      references:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      evidence_code:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      evidence_type:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      method:
+        description: Annotation method or pipeline, derived from the GO_REF (or other reference) cited.
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      with_or_from:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      with_or_from_groups:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      aspect:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      object_type:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      taxon_groups:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      go_slim:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      taxon_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      interacting_taxon_id:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      annotation_date:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      assigned_by:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      annotation_extensions:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      extension_groups:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      species:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      source_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_line:
+        range: integer
+        annotations:
+          facet: false
+          searchable: false
+      gene_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      mapping_status:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      gene_symbol:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      gene_name:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      gene_identifiers:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      term_label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      is_a_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      isa_partof_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      has_review:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      is_redundant:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      has_annotation_review:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      review_entry_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      review_actions:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      review_replacement_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      review_has_support:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      review_count:
+        range: integer
+        annotations:
+          facet: true
+          searchable: false
+      review_multiple:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+  TermRecord:
+    description: GO terms
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      definition:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      aspect:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      synonyms:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      subsets:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      alt_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      obsolete:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      parent_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      is_a_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      isa_partof_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+  KnowledgeRecord:
+    description: Search projections of cached GO-CAMs, modules and PANTHER families.
+      Detailed source structures remain separate snapshots.
+    attributes:
+      chemical_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      id:
+        range: string
+      label:
+        range: string
+      description:
+        range: string
+      status:
+        range: string
+      kind:
+        range: string
+      scope:
+        range: string
+      functional_coherence:
+        range: string
+      search_text:
+        range: string
+      term_ids:
+        range: string
+        multivalued: true
+      gene_ids:
+        range: string
+        multivalued: true
+      gene_symbols:
+        range: string
+        multivalued: true
+      participant_ids:
+        range: string
+        multivalued: true
+      family_ids:
+        range: string
+        multivalued: true
+      model_ids:
+        range: string
+        multivalued: true
+      module_ids:
+        range: string
+        multivalued: true
+      taxon_ids:
+        range: string
+        multivalued: true
+      member_count:
+        range: integer
+      activity_count:
+        range: integer
+      node_count:
+        range: integer
+      reported_protein_count:
+        range: integer
+      enabled_by_count:
+        description: Distinct enabled_by entities among GO-CAM activities.
+        range: integer
+      causal_edge_count:
+        description: Causal edges between enabled activities, including molecule-mediated chains (gocam-py).
+        range: integer
+      component_count:
+        description: Weakly connected causal subgraphs of a GO-CAM, including isolated activities.
+        range: integer
+      longest_path_length:
+        description: Longest shortest directed path, in edges, through causal edges (GO-CAMs) or sequential connections and ordered parts (modules).
+        range: integer
+      part_count:
+        description: Conjunctive (AND) parts across all levels of a module.
+        range: integer
+      variant_set_count:
+        description: Disjunctive (OR) branch points across all levels of a module.
+        range: integer
+      variant_count:
+        description: Alternative variants across all variant sets of a module.
+        range: integer
+      realization_count:
+        description: Distinct combinations of variants and optional parts a module admits; saturates at 10^12.
+        range: integer
+      max_depth:
+        description: Deepest nesting of parts and variants below the module root.
+        range: integer
+      annoton_count:
+        description: Annotons (leaf activities) across all levels of a module.
+        range: integer
+      connection_count:
+        description: Curated connections across all levels of a module.
+        range: integer
+      has_review:
+        range: boolean
+  ReportRecord:
+    description: Research report search metadata; source content and artifacts remain
+      immutable snapshots.
+    attributes:
+      id:
+        range: string
+      label:
+        range: string
+      description:
+        range: string
+      kind:
+        range: string
+      scope:
+        range: string
+      provider:
+        range: string
+      model:
+        range: string
+      organism:
+        range: string
+      subject_label:
+        range: string
+      source_path:
+        range: string
+      created_at:
+        range: string
+      search_text:
+        range: string
+      gene_ids:
+        range: string
+        multivalued: true
+      module_ids:
+        range: string
+        multivalued: true
+      term_ids:
+        range: string
+        multivalued: true
+      family_ids:
+        range: string
+        multivalued: true
+      model_ids:
+        range: string
+        multivalued: true
+      subject_ids:
+        range: string
+        multivalued: true
+      word_count:
+        range: integer
+      artifact_count:
+        range: integer
+      has_artifacts:
+        range: boolean
+  ProjectRecord:
+    description: Project narratives and declared metadata with explicit references.
+    attributes:
+      id:
+        range: string
+      label:
+        range: string
+      description:
+        range: string
+      kind:
+        range: string
+      maturity:
+        range: string
+      source_path:
+        range: string
+      search_text:
+        range: string
+      tags:
+        range: string
+        multivalued: true
+      project_species:
+        range: string
+        multivalued: true
+      project_collections:
+        range: string
+        multivalued: true
+      declared_genes:
+        range: string
+        multivalued: true
+      gene_ids:
+        range: string
+        multivalued: true
+      term_ids:
+        range: string
+        multivalued: true
+      family_ids:
+        range: string
+        multivalued: true
+      model_ids:
+        range: string
+        multivalued: true
+      module_ids:
+        range: string
+        multivalued: true
+      report_ids:
+        range: string
+        multivalued: true
+      project_ids:
+        range: string
+        multivalued: true
+      rule_ids:
+        range: string
+        multivalued: true
+      resource_count:
+        range: integer
+  RuleRecord:
+    description: Source-preserving mappings, conditional propagation rules and reviews.
+    attributes:
+      id:
+        range: string
+      label:
+        range: string
+      description:
+        range: string
+      kind:
+        range: string
+      rule_source:
+        range: string
+      source_path:
+        range: string
+      mapping_set_id:
+        range: string
+      subject_id:
+        range: string
+      object_id:
+        range: string
+      predicate_id:
+        range: string
+      predicate_modifier:
+        range: string
+      mapping_justification:
+        range: string
+      review_status:
+        range: string
+      review_action:
+        range: string
+      mapping_scope:
+        range: string
+      antecedent_status:
+        range: string
+      search_text:
+        range: string
+      term_ids:
+        range: string
+        multivalued: true
+      family_ids:
+        range: string
+        multivalued: true
+      gene_ids:
+        range: string
+        multivalued: true
+      model_ids:
+        range: string
+        multivalued: true
+      module_ids:
+        range: string
+        multivalued: true
+      taxon_ids:
+        range: string
+        multivalued: true
+      premise_ids:
+        range: string
+        multivalued: true
+      project_ids:
+        range: string
+        multivalued: true
+      has_review:
+        range: boolean
+      condition_set_count:
+        range: integer
+  ReferenceRecord:
+    description: Cited references (PMID, DOI, GO_REF, Reactome and other sources) with
+      annotation and review usage; cached publication metadata adds title, authors and venue.
+    attributes:
+      id:
+        range: string
+      label:
+        range: string
+      description:
+        range: string
+      kind:
+        range: string
+      journal:
+        range: string
+      year:
+        range: string
+      doi:
+        range: string
+      publication_type:
+        range: string
+      source_path:
+        range: string
+      search_text:
+        range: string
+      authors:
+        range: string
+        multivalued: true
+      annotation_species:
+        range: string
+        multivalued: true
+      evidence_codes:
+        range: string
+        multivalued: true
+      assigned_by_groups:
+        range: string
+        multivalued: true
+      aspects:
+        range: string
+        multivalued: true
+      review_gene_ids:
+        range: string
+        multivalued: true
+      model_ids:
+        range: string
+        multivalued: true
+      module_ids:
+        range: string
+        multivalued: true
+      family_ids:
+        range: string
+        multivalued: true
+      annotation_count:
+        range: integer
+      gene_count:
+        range: integer
+      term_count:
+        range: integer
+      review_count:
+        range: integer
+      has_review:
+        range: boolean
+      has_abstract:
+        range: boolean
+  ReactionRecord:
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      go_term_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      rhea_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      direction:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      source_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_sha256:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      is_transport:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      chemical_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      left_chemical_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      right_chemical_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+  ChemicalRecord:
+    attributes:
+      has_structure:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      formula:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      charge:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      underlying_chebi_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      polymerization_index:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_uri:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_sha256:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      reactive_part_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+  ReactionParticipantRecord:
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      reaction_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      go_term_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      rhea_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      side:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      chemical_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      stoichiometry_expression:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      compartment:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      source_participant:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      position:
+        range: integer
+        annotations:
+          facet: false
+          searchable: false
+      stoichiometry:
+        range: integer
+        annotations:
+          facet: true
+          searchable: false
+  CellTypeRecord:
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      definition:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_sha256:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      synonyms:
+        range: string
+        multivalued: true
+        annotations:
+          facet: false
+          searchable: false
+      parent_ids:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      is_a_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      obsolete:
+        range: boolean
+        annotations:
+          facet: true
+          searchable: false
+  DifferentiationRecord:
+    attributes:
+      id:
+        range: string
+        identifier: true
+        annotations:
+          facet: false
+          searchable: false
+      go_term_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      label:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      target_cell_type_id:
+        range: string
+        annotations:
+          facet: true
+          searchable: false
+      predicate:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_id:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      source_sha256:
+        range: string
+        annotations:
+          facet: false
+          searchable: false
+      search_text:
+        range: string
+        annotations:
+          facet: false
+          searchable: true
+      target_cell_type_closure:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false
+      axiom_kinds:
+        range: string
+        multivalued: true
+        annotations:
+          facet: true
+          searchable: false

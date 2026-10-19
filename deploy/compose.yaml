@@ -1,0 +1,61 @@
+name: amigo3
+services:
+  solr:
+    image: solr:9.9.0-slim
+    restart: unless-stopped
+    environment:
+      SOLR_HEAP: 2g
+    volumes:
+      - solr-runtime:/var/solr
+      - ${RELEASE_DIR:?Select a release}/solr:/var/solr/data
+    mem_limit: 3g
+    security_opt: [no-new-privileges:true]
+    logging: &logging
+      driver: json-file
+      options: {max-size: 10m, max-file: "3"}
+    healthcheck:
+      test: [CMD-SHELL, "wget -qO- 'http://localhost:8983/solr/admin/info/system' >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+  app:
+    image: ${APP_IMAGE:?Select a digest-pinned app image}
+    restart: unless-stopped
+    env_file: [/etc/amigo3/github.env]
+    environment:
+      AMIGO3_AUTH_ORIGIN: https://${AMIGO_HOSTNAME:?Set hostname}
+      AMIGO3_SITE_ACCESS: ${SITE_ACCESS:-private}
+      AMIGO3_GITHUB_ALLOWLIST_FILE: /etc/amigo3/allowlist.json
+    volumes:
+      - ${RELEASE_DIR}/data:/data:ro
+      # Mount directory so atomic replacement of the allowlist is visible.
+      - /etc/amigo3/access:/etc/amigo3:ro
+    read_only: true
+    tmpfs: [/tmp:size=256m,mode=1777]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 3g
+    logging: *logging
+    depends_on:
+      solr: {condition: service_healthy}
+    healthcheck:
+      # Readiness checks backend connectivity without exposing an anonymous API.
+      test: [CMD, python, -c, "import json,urllib.request; r=json.load(urllib.request.urlopen('http://127.0.0.1:8030/api/me',timeout=5)); assert r['login_enabled']; urllib.request.urlopen('http://solr:8983/solr/admin/cores?action=STATUS',timeout=5)"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+  caddy:
+    image: caddy:2.10.2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - /etc/amigo3/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    logging: *logging
+    depends_on:
+      app: {condition: service_healthy}
+volumes:
+  solr-runtime:
+  caddy-data:
+  caddy-config:

@@ -1,0 +1,4 @@
+# Frozen screen artifacts are reviewed through their accompanying reports.
+docs/data/network-example-screen/** linguist-generated=true
+# A trailing tab preserves an empty final field in these TSV tables.
+docs/data/network-example-screen/*.tsv whitespace=-blank-at-eol

@@ -1,0 +1,55 @@
+.predictions-page { max-width: 1440px; }
+.set-picker { display: flex; flex-direction: column; gap: .4rem; max-width: 40rem; font-weight: 600; }
+.prediction-metrics { display: grid; grid-template-columns: repeat(auto-fit,minmax(145px,1fr)); gap: .8rem; margin: 1.3rem 0; }
+.prediction-metrics > div { background: #f0f5fa; border: 1px solid #d0dce9; border-radius: .4rem; padding: 1rem; }
+.prediction-metrics strong { display: block; font-size: 1.7rem; color: #00174f; }
+.prediction-metrics span { display: block; margin-top: .3rem; }
+.scope-note { color: #4b566a; max-width: 80rem; }
+.provenance { border: 1px solid #ccd6e3; padding: 1rem; margin: 1rem 0; border-radius: .4rem; }
+.provenance summary { cursor: pointer; font-weight: 600; }
+.provenance pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; }
+#source-downloads { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+.prediction-filters { display: flex; flex-wrap: wrap; align-items: end; gap: .8rem; padding: 1rem 0; }
+.prediction-filters label { display: flex; flex-direction: column; gap: .4rem; }
+.prediction-filters .search-label { flex: 1; min-width: 200px; }
+.predictions-page select, .predictions-page input { padding: .55rem; border: 1px solid #aab8c9; border-radius: .25rem; max-width: 100%; background: white; color: #16233b; }
+.predictions-page button, .predictions-page .secondary-button { padding: .6rem .8rem; cursor: pointer; }
+.prediction-pagination { display: flex; align-items: center; gap: .6rem; margin: 1rem 0; }
+#row-count { flex: 1; }
+.prediction-table-wrap { overflow-x: auto; }
+.prediction-table { width: 100%; border-collapse: collapse; }
+.prediction-table th { background: #e9eff6; text-align: left; padding: .7rem; }
+.prediction-table td { padding: .8rem; vertical-align: top; border-bottom: 1px solid #d6e0ea; overflow-wrap: anywhere; }
+.prediction-table td:nth-child(1) { min-width: 160px; }
+.prediction-table td:nth-child(2) { min-width: 200px; }
+.prediction-table td:nth-child(4) { min-width: 220px; max-width: 520px; }
+.prediction-table tr:nth-child(even) { background: #f7f9fc; }
+.prediction-table small { display: block; color: #4b566a; margin-top: .35rem; }
+.prediction-table details { margin: .35rem 0; }
+.prediction-table pre { white-space: pre-wrap; font-size: .8rem; }
+.prediction-table ul { padding-left: 1rem; }
+.prediction-table .status { display: inline-block; padding: .25rem .4rem; border-radius: .2rem; background: #edf0f5; }
+.prediction-table .status-refinement { background: #e0f1eb; }
+.prediction-table .status-unmatched { background: #fff1cf; }
+.notice, #error { padding: 1rem; background: #fff0d2; border-left: 4px solid #bd7900; }
+@media(max-width:650px) { .prediction-filters label { width: 100%; } .prediction-filters select { width: 100%; } .prediction-metrics { grid-template-columns: 1fr 1fr; } }
+.prediction-workspace { display:grid; grid-template-columns:280px minmax(0,1fr); gap:1.5rem; margin-top:1.5rem; }
+.prediction-results { min-width:0; }
+.prediction-facet { border:0; border-top:1px solid #d0dce9; padding:.8rem 0; margin:0; min-width:0; }
+.prediction-facet legend { padding:.4rem 0; font-weight:650; }
+.prediction-facet label { display:flex; gap:.45rem; align-items:start; padding:.35rem 0; cursor:pointer; }
+.prediction-facet input { margin-top:.2rem; flex-shrink:0; }
+.prediction-facet label > span:first-of-type { flex:1; }
+.prediction-facet label:has(input:checked) { color:#00174f; font-weight:600; }
+.prediction-facet label:has(input:disabled) { color:#697383; cursor:default; }
+.facet-count { font-variant-numeric:tabular-nums; font-size:.9rem; background:#edf1f6; border-radius:.25rem; padding:0 .35rem; }
+#prediction-chips, .gene-prediction-categories { display:flex; flex-wrap:wrap; gap:.4rem; margin:.7rem 0; }
+#prediction-chips button, .gene-prediction-categories button { background:#eef3fa; border:1px solid #bccbe0; border-radius:1rem; padding:.35rem .7rem; cursor:pointer; }
+.gene-prediction-categories button[aria-pressed="true"] { background:#00174f; color:white; }
+.prediction-metrics > div:has(button) { padding:0; }
+.prediction-metrics button { background:none; border:0; text-align:left; width:100%; height:100%; padding:1rem; font:inherit; }
+.prediction-metrics button:hover { background:#e1eafa; }
+.ncbi-gene-links { margin:.5rem 0; font-size:.9rem; }
+.ncbi-gene-links strong, .ncbi-gene-links small { display:block; }
+.gene-prediction-links { display:flex; gap:1rem; flex-wrap:wrap; }
+@media(max-width:900px) { .prediction-workspace { grid-template-columns:1fr; } #prediction-facets { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; } }

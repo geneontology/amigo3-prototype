@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -y docker.io docker-compose-v2 unzip curl python3
+systemctl enable --now docker
+work=$(mktemp -d)
+curl --fail --silent --show-error --location https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o "$work/aws.zip"
+unzip -q "$work/aws.zip" -d "$work"
+"$work/aws/install" --update
+rm -rf "$work"
+
+install -d -m 0755 /etc/amigo3/access /opt/amigo3 /var/lib/amigo3/releases /usr/local/lib/amigo3
+printf '%s' '${config}' | base64 -d > /etc/amigo3/deployment.json
+printf '%s' '${allowlist}' | base64 -d > /etc/amigo3/access/allowlist.json
+printf '%s' '${compose}' | base64 -d > /opt/amigo3/compose.yaml
+printf '%s' '${caddyfile}' | base64 -d > /etc/amigo3/Caddyfile
+printf '%s' '${deploy}' | base64 -d > /usr/local/lib/amigo3/deploy.py
+printf '%s' '${release}' | base64 -d > /usr/local/lib/amigo3/release.py
+cat > /usr/local/bin/amigo3-deploy <<'SCRIPT'
+#!/bin/sh
+exec python3 /usr/local/lib/amigo3/deploy.py "$@"
+SCRIPT
+chmod 0755 /usr/local/bin/amigo3-deploy
+
+# Ubuntu EC2 images normally include SSM. Ensure administration remains available.
+if ! snap list amazon-ssm-agent >/dev/null 2>&1; then
+  snap install amazon-ssm-agent --classic
+fi
+snap start amazon-ssm-agent
+printf 'Bootstrap complete. Supply the GitHub secret, then run amigo3-deploy.\n'

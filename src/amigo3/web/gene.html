@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gene · AmiGO 3</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/gene.css"><link rel="stylesheet" href="/predictions.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a>
+    <a class="brand" href="/" aria-label="AmiGO 3 home">AmiGO <span class="three">3</span></a>
+    <span class="header-note">Gene Ontology browser</span>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Search</a><a href="/chat">Chat</a><a href="/?collection=terms">Ontology</a><a href="/megamodels">Megamodels</a><a href="/enrichment">Enrichment</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a><a href="https://geneontology.org/search.html">GO Help ↗</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" class="gene-page">
+<a id="back-results" class="back-link" href="/">← Search results</a>
+<div id="gene-loading" role="status">Loading gene and annotations…</div><div id="gene-error" role="alert" hidden></div>
+<div id="gene-content" hidden>
+<section class="gene-intro"><div class="gene-heading"><p class="eyebrow" id="gene-species"></p><h1 id="gene-symbol"></h1><p class="subtitle" id="gene-name"></p><div id="review-overview" hidden></div><div id="identifiers" aria-label="Identifiers"><div id="gene-identifiers" class="id-list"></div><div id="gene-synonyms"></div></div></div></section>
+<div class="gene-nav" role="tablist" aria-label="Gene details">
+  <a id="tab-core" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Core Functions</a>
+  <a id="tab-annotations" href="#annotations" role="tab" aria-controls="annotations" aria-selected="false" tabindex="-1">Annotations</a>
+  <a id="tab-predictions" href="#predictions" role="tab" aria-controls="predictions" aria-selected="false" tabindex="-1">Predictions</a>
+  <a id="tab-pathways" href="#pathways" role="tab" aria-controls="pathways" aria-selected="false" tabindex="-1">Pathways</a>
+  <a id="tab-evolution" href="#evolution" role="tab" aria-controls="evolution" aria-selected="false" tabindex="-1">Evolution</a>
+  <a id="tab-references" href="#references" role="tab" aria-controls="references" aria-selected="false" tabindex="-1" hidden>References</a>
+  <a id="tab-questions" href="#questions" role="tab" aria-controls="questions" aria-selected="false" tabindex="-1" hidden>Questions &amp; experiments</a>
+  <a id="tab-reports" href="#reports" role="tab" aria-controls="reports" aria-selected="false" tabindex="-1">Reports</a>
+</div>
+<section id="overview" class="gene-section" role="tabpanel" aria-labelledby="tab-core" tabindex="0"><div id="core-functions" class="core-functions"></div><div id="review-biology"></div></section>
+<section id="annotations" class="gene-section" role="tabpanel" aria-labelledby="tab-annotations" tabindex="0" hidden>
+<div class="section-heading"><h2>Annotations</h2><span id="annotation-tally" role="status" aria-live="polite"></span></div>
+<p class="section-note">Upstream annotations with matching review context alongside. Review assessments have not been applied.</p>
+<div id="review-coverage" class="review-coverage"></div>
+<div class="annotation-controls"><input type="search" id="annotation-search" aria-label="Filter this gene’s annotations" placeholder="Filter terms, evidence, references…"><select id="aspect-filter" aria-label="Filter by aspect"><option value="">All aspects</option><option value="F">Molecular function</option><option value="P">Biological process</option><option value="C">Cellular component</option></select><select id="review-filter" aria-label="Filter by review action"><option value="">All review states</option><option value="reviewed">With matching review</option><option value="unreviewed">No matching review</option></select><select id="annotation-sort" aria-label="Sort annotations"><option value="priority">Sort: Priority (IBA first)</option><option value="agreement">Sort: Agreement</option><option value="term">Sort: GO term (A–Z)</option><option value="id">Sort: Record ID</option></select><div id="annotation-view-mode" class="view-mode-group" role="group" aria-label="Annotation view mode"><button type="button" data-annotation-view="rows" aria-pressed="true">Detailed rows</button><button type="button" data-annotation-view="summary" aria-pressed="false">Summary boxes</button></div><button id="reset-annotations" class="text-button">Reset filters</button></div>
+<div class="workspace gene-annotation-workspace"><aside aria-label="Filter annotations"><div class="filter-heading"><h2>Refine annotations</h2></div><div id="facets"></div><details id="add-filter"><summary>Add filter</summary><label for="facet-picker">Choose a field</label><select id="facet-picker"><option value="">Select a field…</option></select></details></aside><div class="gene-annotation-main"><p id="review-count-note" class="fine" hidden></p><div id="chips"></div><div id="annotation-list"></div></div></div>
+<div id="other-reviews"></div>
+</section>
+<section id="predictions" class="gene-section" role="tabpanel" aria-labelledby="tab-predictions" tabindex="0" hidden><h2>Predictions</h2><p>External claims linked through mapped proteins. Comparisons remain specific to each protein; upstream annotations are unchanged.</p><p id="gene-prediction-error" role="alert" hidden></p><div id="gene-prediction-links" class="gene-prediction-links"></div><div id="gene-prediction-identifiers"></div><div id="gene-prediction-categories" class="gene-prediction-categories" aria-label="Prediction comparison categories"></div><div class="prediction-pagination"><span id="gene-prediction-count" role="status">Loading predictions…</span><button id="gene-prediction-previous" type="button" disabled>Previous</button><button id="gene-prediction-next" type="button" disabled>Next</button></div><div class="prediction-table-wrap"><table class="prediction-table"><thead><tr><th>Source set / Protein</th><th>GO term</th><th>Comparison</th><th>Evidence and baseline</th></tr></thead><tbody id="gene-prediction-rows"></tbody></table></div></section>
+<section id="pathways" class="gene-section" role="tabpanel" aria-labelledby="tab-pathways" tabindex="0" hidden><h2>GO-CAMs &amp; modules</h2><div id="gene-related"></div></section>
+<section id="evolution" class="gene-section" role="tabpanel" aria-labelledby="tab-evolution" tabindex="0" hidden><h2>Evolution</h2><div id="gene-evolution"></div></section>
+<section id="references" class="gene-section" role="tabpanel" aria-labelledby="tab-references" tabindex="0" hidden><h2>References</h2><label class="reference-search">Filter references <input id="reference-search" type="search" placeholder="Identifier, title, assessment or finding…"></label><p id="reference-tally" role="status"></p><div id="reference-list"></div></section>
+<section id="questions" class="gene-section" role="tabpanel" aria-labelledby="tab-questions" tabindex="0" hidden><h2>Questions &amp; experiments</h2><p class="section-note">Open questions and follow-up experiments suggested by the gene review.</p><div id="review-questions"></div></section>
+<section id="reports" class="gene-section" role="tabpanel" aria-labelledby="tab-reports" tabindex="0" hidden><h2>Reports</h2><div id="gene-reports"></div><section id="review-sources"><h3>Review sources</h3><div id="review-provenance"></div><p id="match-policy" class="section-note"></p></section></section>
+</div>
+</main>
+<footer>
+  <div class="footer-links"><span>AmiGO 3 · Gene Ontology browser</span><a href="https://geneontology.org/">Gene Ontology ↗</a></div>
+  <span id="build"></span>
+</footer>
+<script src="/chat-links.js" defer></script>
+<script src="/species.js" defer></script>
+<script src="/presentation.js" defer></script>
+<script src="/hierarchies.js" defer></script>
+<script src="/tabs.js" defer></script>
+<script src="/detail.js" defer></script>
+<script src="/predictions-common.js" defer></script><script src="/gene-predictions.js" defer></script>
+<script src="/gene.js" defer></script>
+</body></html>

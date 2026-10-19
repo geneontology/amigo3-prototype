@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:ns1="http://www.w3.org/2000/01/rdf-schema#" xmlns:ns2="http://rdf.rhea-db.org/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/contains1">
+    <ns1:subPropertyOf rdf:resource="http://rdf.rhea-db.org/contains" />
+    <ns2:coefficient>1</ns2:coefficient>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Compound_3249">
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">3249</ns2:id>
+    <ns2:accession>CHEBI:15378</ns2:accession>
+    <ns2:name>H(+)</ns2:name>
+    <ns2:htmlName>H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlName>
+    <ns2:formula>H</ns2:formula>
+    <ns2:charge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</ns2:charge>
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/SmallMolecule" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:chebi rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15378" />
+    <ns1:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15378" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Compound_3484">
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">3484</ns2:id>
+    <ns2:accession>CHEBI:57540</ns2:accession>
+    <ns2:name>NAD(+)</ns2:name>
+    <ns2:htmlName>NAD&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlName>
+    <ns2:formula>C21H26N7O14P2</ns2:formula>
+    <ns2:charge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</ns2:charge>
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/SmallMolecule" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:chebi rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57540" />
+    <ns1:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57540" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Compound_1650">
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1650</ns2:id>
+    <ns2:accession>CHEBI:57945</ns2:accession>
+    <ns2:name>NADH</ns2:name>
+    <ns2:htmlName>NADH</ns2:htmlName>
+    <ns2:formula>C21H27N7O14P2</ns2:formula>
+    <ns2:charge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-2</ns2:charge>
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/SmallMolecule" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:chebi rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57945" />
+    <ns1:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57945" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/containsN">
+    <ns1:subPropertyOf rdf:resource="http://rdf.rhea-db.org/contains" />
+    <ns2:coefficient>N</ns2:coefficient>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/contains2">
+    <ns1:subPropertyOf rdf:resource="http://rdf.rhea-db.org/contains" />
+    <ns2:coefficient>2</ns2:coefficient>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Reaction" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">23260</ns2:id>
+    <ns2:accession>RHEA:23260</ns2:accession>
+    <ns1:label>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) = 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns1:label>
+    <ns2:equation>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) = 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns2:equation>
+    <ns2:htmlEquation>(15&lt;i&gt;S&lt;/i&gt;)-hydroxy-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NAD&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; = 15-oxo-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NADH + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlEquation>
+    <ns2:status rdf:resource="http://rdf.rhea-db.org/Approved" />
+    <ns2:directionalReaction rdf:resource="http://rdf.rhea-db.org/23261" />
+    <ns2:directionalReaction rdf:resource="http://rdf.rhea-db.org/23262" />
+    <ns2:bidirectionalReaction rdf:resource="http://rdf.rhea-db.org/23263" />
+    <ns2:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isChemicallyBalanced>
+    <ns2:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ns2:isTransport>
+    <ns2:ec rdf:resource="http://purl.uniprot.org/enzyme/1.1.1.232" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/21916491" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/19535459" />
+    <ns2:side rdf:resource="http://rdf.rhea-db.org/23260_L" />
+    <ns2:side rdf:resource="http://rdf.rhea-db.org/23260_R" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_L">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionSide" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:curatedOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1</ns2:curatedOrder>
+    <ns2:transformableTo rdf:resource="http://rdf.rhea-db.org/23260_R" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_4777">
+    <ns2:compound rdf:resource="http://rdf.rhea-db.org/Compound_4777" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Compound_4777" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Compound_4777">
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4777</ns2:id>
+    <ns2:accession>CHEBI:57409</ns2:accession>
+    <ns2:name>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate</ns2:name>
+    <ns2:htmlName>(15&lt;i&gt;S&lt;/i&gt;)-hydroxy-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate</ns2:htmlName>
+    <ns2:formula>C20H31O3</ns2:formula>
+    <ns2:charge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</ns2:charge>
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/SmallMolecule" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:chebi rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57409" />
+    <ns1:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57409" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_4777">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionParticipant" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_L">
+    <ns2:contains rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_4777" />
+    <ns2:contains1 rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_4777" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_3484">
+    <ns2:compound rdf:resource="http://rdf.rhea-db.org/Compound_3484" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Compound_3484" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionParticipant" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_L">
+    <ns2:contains rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_3484" />
+    <ns2:contains1 rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_3484" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_R">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionSide" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:curatedOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#long">2</ns2:curatedOrder>
+    <ns2:transformableTo rdf:resource="http://rdf.rhea-db.org/23260_L" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_4962">
+    <ns2:compound rdf:resource="http://rdf.rhea-db.org/Compound_4962" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Compound_4962" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Compound_4962">
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4962</ns2:id>
+    <ns2:accession>CHEBI:57410</ns2:accession>
+    <ns2:name>15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate</ns2:name>
+    <ns2:htmlName>15-oxo-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate</ns2:htmlName>
+    <ns2:formula>C20H29O3</ns2:formula>
+    <ns2:charge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</ns2:charge>
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/SmallMolecule" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:chebi rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57410" />
+    <ns1:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CHEBI_57410" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_4962">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionParticipant" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_R">
+    <ns2:contains rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_4962" />
+    <ns2:contains1 rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_4962" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_1650">
+    <ns2:compound rdf:resource="http://rdf.rhea-db.org/Compound_1650" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Compound_1650" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionParticipant" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_R">
+    <ns2:contains rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_1650" />
+    <ns2:contains1 rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_1650" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/Participant_23260_compound_3249">
+    <ns2:compound rdf:resource="http://rdf.rhea-db.org/Compound_3249" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/Compound_3249" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/ReactionParticipant" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23260_R">
+    <ns2:contains rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_3249" />
+    <ns2:contains1 rdf:resource="http://rdf.rhea-db.org/Participant_23260_compound_3249" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23261">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/DirectionalReaction" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">23261</ns2:id>
+    <ns2:accession>RHEA:23261</ns2:accession>
+    <ns1:label>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) =&gt; 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns1:label>
+    <ns2:equation>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) =&gt; 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns2:equation>
+    <ns2:htmlEquation>(15&lt;i&gt;S&lt;/i&gt;)-hydroxy-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NAD&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; =&gt; 15-oxo-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NADH + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlEquation>
+    <ns2:status rdf:resource="http://rdf.rhea-db.org/Approved" />
+    <ns2:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isChemicallyBalanced>
+    <ns2:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ns2:isTransport>
+    <ns1:seeAlso rdf:resource="http://identifiers.org/reactome/R-HSA-2161789.4" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/21916491" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/19535459" />
+    <ns2:substrates rdf:resource="http://rdf.rhea-db.org/23260_L" />
+    <ns2:products rdf:resource="http://rdf.rhea-db.org/23260_R" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23262">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/DirectionalReaction" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">23262</ns2:id>
+    <ns2:accession>RHEA:23262</ns2:accession>
+    <ns1:label>15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+) =&gt; (15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+)</ns1:label>
+    <ns2:equation>15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+) =&gt; (15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+)</ns2:equation>
+    <ns2:htmlEquation>15-oxo-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NADH + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; =&gt; (15&lt;i&gt;S&lt;/i&gt;)-hydroxy-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NAD&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlEquation>
+    <ns2:status rdf:resource="http://rdf.rhea-db.org/Approved" />
+    <ns2:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isChemicallyBalanced>
+    <ns2:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ns2:isTransport>
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/21916491" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/19535459" />
+    <ns2:products rdf:resource="http://rdf.rhea-db.org/23260_L" />
+    <ns2:substrates rdf:resource="http://rdf.rhea-db.org/23260_R" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rdf.rhea-db.org/23263">
+    <ns1:subClassOf rdf:resource="http://rdf.rhea-db.org/BidirectionalReaction" />
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+    <ns2:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">23263</ns2:id>
+    <ns2:accession>RHEA:23263</ns2:accession>
+    <ns1:label>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) &lt;=&gt; 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns1:label>
+    <ns2:equation>(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) &lt;=&gt; 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</ns2:equation>
+    <ns2:htmlEquation>(15&lt;i&gt;S&lt;/i&gt;)-hydroxy-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NAD&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; &lt;=&gt; 15-oxo-(5&lt;i&gt;Z&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;E&lt;/i&gt;)-eicosatetraenoate + NADH + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt;</ns2:htmlEquation>
+    <ns2:status rdf:resource="http://rdf.rhea-db.org/Approved" />
+    <ns2:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns2:isChemicallyBalanced>
+    <ns2:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</ns2:isTransport>
+    <ns1:seeAlso rdf:resource="http://identifiers.org/kegg.reaction/R04517" />
+    <ns1:seeAlso rdf:resource="http://identifiers.org/biocyc/METACYC:1.1.1.232-RXN" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/21916491" />
+    <ns2:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/19535459" />
+    <ns2:substratesOrProducts rdf:resource="http://rdf.rhea-db.org/23260_L" />
+    <ns2:substratesOrProducts rdf:resource="http://rdf.rhea-db.org/23260_R" />
+  </rdf:Description>
+</rdf:RDF>

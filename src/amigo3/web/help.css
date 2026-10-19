@@ -1,0 +1,37 @@
+/* Reader-facing help pages share the application shell and a narrow reading column. */
+.help-page { max-width: 1180px; font-size: 16px; line-height: 1.7; overflow-wrap: anywhere; }
+.help-intro { margin: 8px 0 32px; padding: 24px 28px; background: var(--surface-blue); border-left: 4px solid var(--go-blue); }
+.help-intro h1 { font-size: clamp(27px, 4vw, 38px); }
+.help-intro p:not(.eyebrow) { max-width: 720px; margin: 12px 0; color: var(--text-muted); }
+.help-layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 44px; align-items: start; }
+.help-contents { position: sticky; top: 24px; display: grid; gap: 6px; font-size: 14px; border-left: 2px solid var(--border); padding-left: 16px; }
+.help-contents strong { color: var(--go-navy); margin-bottom: 6px; }
+.help-contents a { padding: 3px 0; }
+.help-article { min-width: 0; }
+.help-article section { scroll-margin-top: 24px; margin-bottom: 42px; }
+.help-article h2 { font-size: 25px; color: var(--go-navy); margin: 0 0 16px; line-height: 1.3; }
+.help-article h3 { font-size: 18px; color: var(--go-navy); margin: 20px 0 8px; }
+.help-article p { margin: 0 0 16px; }
+.help-article li { padding-left: 4px; margin-bottom: 10px; }
+.help-article a { text-decoration: underline; text-underline-offset: 3px; }
+.help-callout { border-left: 3px solid var(--go-blue); background: var(--surface-blue); padding: 18px 22px; margin: 24px 0; }
+.help-callout h3 { margin-top: 0; }
+.help-callout p:last-child { margin-bottom: 0; }
+.help-article details { background: var(--surface-muted); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 18px; font-size: 14px; }
+.help-article summary { color: var(--go-blue); font-weight: 700; }
+.help-article details[open] summary { margin-bottom: 12px; }
+.help-article code { font-size: .88em; }
+.help-controls { margin: 24px 0; }
+.help-controls dt { font-weight: 700; color: var(--go-navy); border-top: 1px solid var(--border); padding-top: 12px; }
+.help-controls dd { margin: 4px 0 16px; }
+@media (max-width: 760px) {
+  .help-layout { grid-template-columns: 1fr; gap: 28px; }
+  .help-contents { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; }
+  .help-contents strong { grid-column: 1 / -1; }
+  .help-intro { padding: 20px; }
+}
+@media print {
+  .site-header, .help-contents, footer { display: none; }
+  .help-layout { display: block; }
+  .help-page { max-width: none; font-size: 12pt; }
+}

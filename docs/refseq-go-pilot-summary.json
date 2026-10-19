@@ -1,0 +1,516 @@
+{
+  "assembly": "GCF_000007565.2_ASM756v2",
+  "taxon": 160488,
+  "ontology_release": "releases/2026-07-26",
+  "headers": {
+    "ncbi": [
+      "!gaf-version: 2.2",
+      "!generated-by: NCBI",
+      "!date-generated: 2025-06-12",
+      "!",
+      "!GO version: 2025-03-16",
+      "!",
+      "!#DB\tProtein_accession\tSymbol\tQualifier\tGO_ID\tReference\tEvidence_Code\tWith,From\tAspect\tGene_Name\tGene_Synonym\tType\tTaxon\tDate\tAssigned_By\tAnnot_Ext\tGene_Product_Form_ID"
+    ],
+    "uniprot": [
+      "!gaf-version: 2.2",
+      "!generated-by: UniProt",
+      "!date-generated: 2026-10-11",
+      "!GO-version: http://purl.obolibrary.org/obo/go/releases/2026-09-27/extensions/go-plus.ofn"
+    ]
+  },
+  "sources": {
+    "ncbi.gaf.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_gene_ontology.gaf.gz",
+      "resolved_url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_gene_ontology.gaf.gz",
+      "retrieved_at": "2026-10-18T19:32:22.387264+00:00",
+      "last_modified": "Thu, 12 Jun 2025 23:12:30 GMT",
+      "uniprot_release": null,
+      "bytes": 216610,
+      "sha256": "d3e54d8669aaaec1ba28f29f0ecf8b61b152109cdaddf3e533d114106ffded9a"
+    },
+    "ncbi.faa.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_protein.faa.gz",
+      "resolved_url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_protein.faa.gz",
+      "retrieved_at": "2026-10-18T19:32:23.067132+00:00",
+      "last_modified": "Thu, 12 Jun 2025 23:12:30 GMT",
+      "uniprot_release": null,
+      "bytes": 1176863,
+      "sha256": "c6f175a6f88844b72e6b0bedc64063e644fd65824a093dc06e3553e59571dbfd"
+    },
+    "assembly_report.txt": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_assembly_report.txt",
+      "resolved_url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/007/565/GCF_000007565.2_ASM756v2/GCF_000007565.2_ASM756v2_assembly_report.txt",
+      "retrieved_at": "2026-10-18T19:32:23.343673+00:00",
+      "last_modified": "Tue, 01 Apr 2025 02:28:38 GMT",
+      "uniprot_release": null,
+      "bytes": 1143,
+      "sha256": "81cca88018238467cc8c60dde0a7ca3eb4c9410c35308cf4dc974136c5057a54"
+    },
+    "uniprot.gaf": {
+      "url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/proteomes/109.P_putida_KT2440.goa",
+      "resolved_url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/proteomes/109.P_putida_KT2440.goa",
+      "retrieved_at": "2026-10-18T19:32:26.131788+00:00",
+      "last_modified": "Sun, 11 Oct 2026 18:33:13 GMT",
+      "uniprot_release": null,
+      "bytes": 4558137,
+      "sha256": "c842d019c63979faf5a023593f7880febed45e43bbf7e7e8192e7244c7826bb0"
+    },
+    "uniprot.tsv": {
+      "url": "https://rest.uniprot.org/uniprotkb/stream?query=organism_id%3A160488&format=tsv&fields=accession%2Cxref_refseq%2Csequence%2Cgene_primary%2Cprotein_name",
+      "resolved_url": "https://rest.uniprot.org/uniprotkb/stream?query=organism_id%3A160488&format=tsv&fields=accession%2Cxref_refseq%2Csequence%2Cgene_primary%2Cprotein_name",
+      "retrieved_at": "2026-10-18T19:32:28.638980+00:00",
+      "last_modified": null,
+      "uniprot_release": "2026_03",
+      "bytes": 2197129,
+      "sha256": "f3fb6e8bc8df6eefd391fa2d2ea67cfd042784cd82cfb857ee0bc9885a20c10d"
+    },
+    "go-basic.obo": {
+      "url": "https://current.geneontology.org/ontology/go-basic.obo",
+      "resolved_url": "https://current.geneontology.org/ontology/go-basic.obo",
+      "retrieved_at": "2026-10-18T19:32:30.258711+00:00",
+      "last_modified": "Sat, 08 Aug 2026 22:27:06 GMT",
+      "uniprot_release": null,
+      "bytes": 32227785,
+      "sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc"
+    }
+  },
+  "metrics": {
+    "source_counts": [
+      {
+        "source": "ncbi",
+        "annotation_rows": 8263,
+        "proteins": 3415,
+        "terms": 1626
+      },
+      {
+        "source": "uniprot",
+        "annotation_rows": 25487,
+        "proteins": 3901,
+        "terms": 2614
+      }
+    ],
+    "catalog_counts": [
+      {
+        "source": "ncbi",
+        "proteins": 5448
+      },
+      {
+        "source": "uniprot",
+        "proteins": 5529
+      }
+    ],
+    "mapping": [
+      {
+        "unambiguous_identical_pairs": 4501,
+        "also_explicit_xref": 4501
+      }
+    ],
+    "ambiguous_mapping": [
+      {
+        "refseq": 1,
+        "uniprot": 2
+      }
+    ],
+    "annotation_mapping": [
+      {
+        "source": "ncbi",
+        "annotation_rows": 7096,
+        "proteins": 2921
+      },
+      {
+        "source": "uniprot",
+        "annotation_rows": 22272,
+        "proteins": 3328
+      }
+    ],
+    "excluded": [
+      {
+        "source": "ncbi",
+        "negated_rows": 0,
+        "obsolete_rows": 121,
+        "unknown_rows": 0,
+        "missing_symbol_rows": 5296
+      },
+      {
+        "source": "uniprot",
+        "negated_rows": 0,
+        "obsolete_rows": 0,
+        "unknown_rows": 0,
+        "missing_symbol_rows": 0
+      }
+    ],
+    "pair_overlap": [
+      {
+        "status": "ncbi_only",
+        "pairs": 2165,
+        "proteins": 1394
+      },
+      {
+        "status": "shared",
+        "pairs": 4823,
+        "proteins": 2360
+      },
+      {
+        "status": "uniprot_only",
+        "pairs": 10278,
+        "proteins": 3069
+      }
+    ],
+    "aspect_overlap": [
+      {
+        "aspect": "C",
+        "status": "ncbi_only",
+        "pairs": 295
+      },
+      {
+        "aspect": "C",
+        "status": "shared",
+        "pairs": 605
+      },
+      {
+        "aspect": "C",
+        "status": "uniprot_only",
+        "pairs": 2527
+      },
+      {
+        "aspect": "F",
+        "status": "ncbi_only",
+        "pairs": 1214
+      },
+      {
+        "aspect": "F",
+        "status": "shared",
+        "pairs": 2684
+      },
+      {
+        "aspect": "F",
+        "status": "uniprot_only",
+        "pairs": 4621
+      },
+      {
+        "aspect": "P",
+        "status": "ncbi_only",
+        "pairs": 656
+      },
+      {
+        "aspect": "P",
+        "status": "shared",
+        "pairs": 1534
+      },
+      {
+        "aspect": "P",
+        "status": "uniprot_only",
+        "pairs": 3130
+      }
+    ],
+    "relation_overlap": [
+      {
+        "status": "ncbi_only",
+        "assertions": 2251
+      },
+      {
+        "status": "shared",
+        "assertions": 4737
+      },
+      {
+        "status": "uniprot_only",
+        "assertions": 10365
+      }
+    ],
+    "ncbi_novelty": [
+      {
+        "covered_by_uniprot_descendant": false,
+        "has_uniprot_ancestor": false,
+        "pairs": 1535,
+        "proteins": 1048
+      },
+      {
+        "covered_by_uniprot_descendant": false,
+        "has_uniprot_ancestor": true,
+        "pairs": 368,
+        "proteins": 316
+      },
+      {
+        "covered_by_uniprot_descendant": true,
+        "has_uniprot_ancestor": false,
+        "pairs": 219,
+        "proteins": 201
+      },
+      {
+        "covered_by_uniprot_descendant": true,
+        "has_uniprot_ancestor": true,
+        "pairs": 43,
+        "proteins": 41
+      }
+    ],
+    "methods": [
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "HMM",
+        "annotation_rows": 4381
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "ArchId",
+        "annotation_rows": 3836
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "",
+        "annotation_rows": 12
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "cluster",
+        "annotation_rows": 12
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR003578",
+        "annotation_rows": 4
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR003477",
+        "annotation_rows": 4
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR004158",
+        "annotation_rows": 4
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR003734",
+        "annotation_rows": 2
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR003340",
+        "annotation_rows": 2
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR004167",
+        "annotation_rows": 2
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR004157",
+        "annotation_rows": 2
+      },
+      {
+        "source": "ncbi",
+        "evidence": "IEA",
+        "assigned_by": "RefSeq",
+        "with_prefix": "NBR004681",
+        "annotation_rows": 2
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "InterPro",
+        "with_prefix": "InterPro",
+        "annotation_rows": 9054
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "TreeGrafter",
+        "with_prefix": "PANTHER",
+        "annotation_rows": 5381
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "UniProt",
+        "with_prefix": "UniRule",
+        "annotation_rows": 4811
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "UniProt",
+        "with_prefix": "ARBA",
+        "annotation_rows": 1602
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "UniProt",
+        "with_prefix": "UniProtKB-SubCell",
+        "annotation_rows": 1502
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "UniProt",
+        "with_prefix": "EC",
+        "annotation_rows": 1230
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "RHEA",
+        "with_prefix": "RHEA",
+        "annotation_rows": 812
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "GOC",
+        "with_prefix": "GO",
+        "annotation_rows": 483
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEA",
+        "assigned_by": "UniProt",
+        "with_prefix": "UniProtKB-UniPathway",
+        "annotation_rows": 417
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IDA",
+        "assigned_by": "UniProt",
+        "with_prefix": "",
+        "annotation_rows": 55
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IPI",
+        "assigned_by": "CollecTF",
+        "with_prefix": "RefSeq",
+        "annotation_rows": 55
+      },
+      {
+        "source": "uniprot",
+        "evidence": "EXP",
+        "assigned_by": "UniProt",
+        "with_prefix": "",
+        "annotation_rows": 21
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IMP",
+        "assigned_by": "CollecTF",
+        "with_prefix": "",
+        "annotation_rows": 21
+      },
+      {
+        "source": "uniprot",
+        "evidence": "ISS",
+        "assigned_by": "UniProt",
+        "with_prefix": "UniProtKB",
+        "annotation_rows": 18
+      },
+      {
+        "source": "uniprot",
+        "evidence": "EXP",
+        "assigned_by": "CollecTF",
+        "with_prefix": "",
+        "annotation_rows": 9
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IMP",
+        "assigned_by": "UniProt",
+        "with_prefix": "",
+        "annotation_rows": 5
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IPI",
+        "assigned_by": "IntAct",
+        "with_prefix": "UniProtKB",
+        "annotation_rows": 4
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IDA",
+        "assigned_by": "CollecTF",
+        "with_prefix": "",
+        "annotation_rows": 4
+      },
+      {
+        "source": "uniprot",
+        "evidence": "NAS",
+        "assigned_by": "UniProt",
+        "with_prefix": "",
+        "annotation_rows": 1
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IEP",
+        "assigned_by": "CollecTF",
+        "with_prefix": "",
+        "annotation_rows": 1
+      },
+      {
+        "source": "uniprot",
+        "evidence": "IMP",
+        "assigned_by": "DisProt",
+        "with_prefix": "",
+        "annotation_rows": 1
+      }
+    ],
+    "novel_methods": [
+      {
+        "with_prefix": "ArchId",
+        "pairs": 1220
+      },
+      {
+        "with_prefix": "HMM",
+        "pairs": 665
+      },
+      {
+        "with_prefix": "",
+        "pairs": 7
+      },
+      {
+        "with_prefix": "NBR004158",
+        "pairs": 4
+      },
+      {
+        "with_prefix": "cluster",
+        "pairs": 3
+      },
+      {
+        "with_prefix": "NBR004157",
+        "pairs": 2
+      },
+      {
+        "with_prefix": "NBR004167",
+        "pairs": 2
+      }
+    ],
+    "newly_annotated": [
+      {
+        "proteins": 248
+      }
+    ]
+  }
+}

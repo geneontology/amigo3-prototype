@@ -1,0 +1,79 @@
+{
+  "source": "https://raw.githubusercontent.com/oborel/obo-relations/v2026-09-04/ro.json",
+  "version": "http://purl.obolibrary.org/obo/ro/releases/2026-09-04/ro.json",
+  "sha256": "17eab8be4f47c73d2905ba45752154ae8e2e7b0bf03ba3cc62a326b42a38e5a5",
+  "relations": {
+    "RO:0002211": {
+      "label": "regulates",
+      "sign": "neutral"
+    },
+    "RO:0002212": {
+      "label": "negatively regulates",
+      "sign": "negative"
+    },
+    "RO:0002213": {
+      "label": "positively regulates",
+      "sign": "positive"
+    },
+    "RO:0002304": {
+      "label": "causally upstream of, positive effect",
+      "sign": "positive"
+    },
+    "RO:0002305": {
+      "label": "causally upstream of, negative effect",
+      "sign": "negative"
+    },
+    "RO:0002407": {
+      "label": "indirectly positively regulates",
+      "sign": "positive"
+    },
+    "RO:0002409": {
+      "label": "indirectly negatively regulates",
+      "sign": "negative"
+    },
+    "RO:0002411": {
+      "label": "causally upstream of",
+      "sign": "neutral"
+    },
+    "RO:0002412": {
+      "label": "immediately causally upstream of",
+      "sign": "neutral"
+    },
+    "RO:0002413": {
+      "label": "provides input for",
+      "sign": "neutral"
+    },
+    "RO:0002578": {
+      "label": "directly regulates",
+      "sign": "neutral"
+    },
+    "RO:0002629": {
+      "label": "directly positively regulates",
+      "sign": "positive"
+    },
+    "RO:0002630": {
+      "label": "directly negatively regulates",
+      "sign": "negative"
+    },
+    "RO:0012009": {
+      "label": "constitutively upstream of",
+      "sign": "positive"
+    },
+    "RO:0012010": {
+      "label": "removes input for",
+      "sign": "negative"
+    },
+    "RO:0012011": {
+      "label": "indirectly causally upstream of",
+      "sign": "neutral"
+    },
+    "RO:0012012": {
+      "label": "indirectly regulates",
+      "sign": "neutral"
+    },
+    "RO:0019004": {
+      "label": "immediately constitutively upstream of",
+      "sign": "positive"
+    }
+  }
+}

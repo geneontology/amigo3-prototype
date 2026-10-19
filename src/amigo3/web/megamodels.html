@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GO-CAM megamodels · AmiGO 3</title><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/gene.css"><link rel="stylesheet" href="/megamodels.css"></head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="go-home" href="https://geneontology.org/" aria-label="Gene Ontology website"><img src="/assets/go-logo.png" alt="" width="43" height="43"></a><a class="brand" href="/">AmiGO <span class="three">3</span></a><span class="header-note">Gene Ontology browser</span><nav class="site-nav" aria-label="Main navigation"><a href="/">Search</a><a href="/chat">Chat</a><a href="/?collection=gocams">GO-CAMs</a><a href="/megamodels" aria-current="page">Megamodels</a><a href="/enrichment">Enrichment</a><a href="/api/manifest">Data sources</a><a href="/docs">API</a></nav></div></header>
+<main id="main-content" class="network-page">
+  <div class="network-heading"><div><p class="eyebrow">GO-CAM collection</p><h1>Megamodel network</h1><p>Every GO-CAM is a node. Explore how models connect through shared activities and molecules.</p></div><a id="network-list" class="network-button" href="/?collection=gocams">List view →</a></div>
+  <div class="network-app">
+    <aside class="network-sidebar" aria-label="Network filters">
+      <form id="network-search"><label for="network-query">Search GO-CAMs</label><div><input id="network-query" type="search" placeholder="Model, gene, process…"><button>Search</button></div></form>
+      <div class="network-filter-heading"><h2>Filter models</h2><button id="network-clear">Reset</button></div>
+      <div id="network-chips"></div><div id="network-facets"></div>
+      <details><summary>Add filter</summary><select id="network-facet-picker" aria-label="Add filter"><option value="">Choose a field…</option></select></details>
+      <details id="network-link-settings" open><summary>Connect models through</summary><div id="network-criteria"></div><div id="network-chemistry"><label for="network-location">Chemical compartments</label><select id="network-location"><option value="same">Same known location</option><option value="compatible">Allow unknown locations</option><option value="any">Ignore location</option></select><label class="network-check"><input id="network-currency" type="checkbox"> Include common metabolites</label><details><summary>Excluded metabolites</summary><p id="network-currencies" class="mono"></p></details></div><p class="fine">Exact identifiers within the same recorded species. Connections are candidates, not new causal assertions.</p></details>
+    </aside>
+    <section class="network-stage" aria-label="GO-CAM network">
+      <div class="network-toolbar"><label>Layout <select id="network-layout"><option value="cose">Force-directed</option><option value="concentric">Connectivity rings</option><option value="circle">Circle</option></select></label><button id="network-relayout">Arrange</button><button id="network-stop" hidden>Stop layout</button><button id="network-fit">Fit</button><button id="network-in" aria-label="Zoom in">+</button><button id="network-out" aria-label="Zoom out">−</button><label><input id="network-labels" type="checkbox"> Labels</label><button id="network-download" disabled>JSON ↓</button><button id="network-png" disabled>PNG ↓</button></div>
+      <p id="network-status" role="status" aria-live="polite">Loading GO-CAMs…</p><p id="network-error" role="alert" hidden></p>
+      <div id="network-canvas" role="img" aria-label="GO-CAM model network. Select a model below for keyboard inspection."></div>
+      <div id="network-legend"></div>
+      <div class="network-selector"><label for="network-node">Find in view</label><select id="network-node" disabled><option value="">Select a model…</option></select><button id="network-deselect">Clear selection</button></div>
+    </section>
+    <aside id="network-inspector" aria-label="Network inspector"><h2>Explore the collection</h2><p>Select a node to inspect a GO-CAM, or an edge to see what links two models.</p><p>Colors distinguish species. Larger nodes contain more activities. Disconnected models remain visible.</p><p>Drag nodes to rearrange. Drag the background to pan; scroll to zoom.</p></aside>
+  </div>
+</main>
+<footer><div class="footer-links"><span>AmiGO 3 · Gene Ontology browser</span><a href="https://geneontology.org/">Gene Ontology ↗</a></div><span id="build"></span></footer>
+<script src="/graph.js" defer></script><script src="/megamodels.js" defer></script>
+</body></html>

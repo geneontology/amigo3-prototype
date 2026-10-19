@@ -1,0 +1,33 @@
+# Annotation method, derived from the GAF reference column (column 6).
+#
+# An evidence code says what kind of support an annotation has; IEA in particular
+# covers many unrelated pipelines. The GO_REF cited in the reference column names
+# the pipeline (https://github.com/geneontology/go-site/tree/master/metadata/gorefs).
+#
+# Resolution, per annotation row (first match wins):
+#   1. the first GO_REF reference listed under `go_refs`;
+#   2. any other GO_REF: the GO_REF id itself, so an unmapped method stays visible;
+#   3. the first reference whose prefix is listed under `prefixes`;
+#   4. `default`.
+go_refs:
+  GO_REF:0000002: InterPro2GO
+  GO_REF:0000003: EC2GO
+  GO_REF:0000015: No biological data (ND)
+  GO_REF:0000024: Manual ortholog transfer
+  GO_REF:0000033: PAINT phylogenetic inference
+  GO_REF:0000041: UniPathway2GO
+  GO_REF:0000043: UniProtKB-KW
+  GO_REF:0000044: UniProtKB-SubCell
+  GO_REF:0000104: UniRule
+  GO_REF:0000107: Ensembl Compara
+  GO_REF:0000108: GO logical inference
+  GO_REF:0000115: Rfam2GO
+  GO_REF:0000116: Rhea2GO
+  GO_REF:0000117: ARBA
+  GO_REF:0000118: TreeGrafter
+  GO_REF:0000120: Combined automated annotation
+prefixes:
+  PMID: Literature curation
+  DOI: Literature curation
+  Reactome: Reactome
+default: Other
